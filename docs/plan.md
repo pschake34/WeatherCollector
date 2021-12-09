@@ -25,24 +25,25 @@ We will create a weather station with at least 4 sensors and a web dashboard. We
 
 ### Needed proof of concepts
 
-Get each sensor working individually, prototype of communication between web server and arduino with simple initial website design
+* Each sensor working individually
+* Connect MKR 1010 to WiFi
+* Get initial website working on hosting provider
+* Get communication between MKR and initial website working
 
 ### Design sketches and images
 
-Will have a wind gauge that measures the wind speed and displays it on the dashboard.  Will also have a barometric pressure sensor to measure air pressure. Will also have a thermometer to measure temperature. Will have a photo interrupter to measure how many times the blades spin per minute. Will also have a 
+In Progress...
 
 ### List of materials
 
-photo interrupter, arduino, thermometer, hygrometer, barometer, anemometer 
+photo interrupter, arduino, thermometer, hygrometer, barometer, anemometer, rainfall detection system
 
 ### What we don’t know
 
 How to program each individual sensor, what kind of communication protocol each sensor uses, what kind of hosting we will use for the website (maybe something onsite?), how to communicate between the arduino and the web server.
 
-
-
 ### Schedule & delegation of work/accountability
 
 **Paul:** Writing code + wiring + electronics
 
-**Ezhar:** CAD + assembly + testing
+**Ezhar:** CAD + assembly + testing + weatherproofing
