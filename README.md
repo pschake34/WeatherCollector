@@ -17,3 +17,19 @@ Our initial plan was to create a weather station which would collect data on tem
 ## Research
 
 The first order of business for our project was to research the various sensors we were using to collect our weather data. Additional research needed to be conducted on wireless communication with Arduino, web development, outdoor waterproofing, among other topics. An in-depth overview of our research can be found [here](docs/research.md).
+
+
+
+
+---
+
+
+
+
+### Description
+
+### Evidence
+
+### Images
+
+### Reflection
