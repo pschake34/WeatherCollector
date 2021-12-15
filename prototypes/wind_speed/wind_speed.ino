@@ -19,7 +19,7 @@ void loop() {
     Serial.println("V");
 
     float wind_speed = mapfloat(voltage, 0.4, 2, 0, 32.4);
-    float speed_mph = ((wind_speed *3600)/1609.344);
+    float speed_mph = ((wind_speed *3600)/1609.344); //convert from meters per hour to miles
     Serial.print("Wind Speed =");
     Serial.print(wind_speed);
     Serial.println("m/s");
