@@ -1,3 +1,6 @@
 # Ignore IDE files and libraries
 .vscode/
 lib*
+
+# Ignore sensitive info
+SSID_info.h
