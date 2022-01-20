@@ -29,6 +29,7 @@ MKRIoTCarrier carrier;
 
 float tempC1 = 0;
 float tempC2 = 0;
+float pressurekPa = 0;
 
 void setup() {
   // Initialize serial and wait for port to open:
@@ -81,15 +82,17 @@ void loop() {
   tempC1 = carrier.Env.readTemperature();
   //tempC2 = myPressure.getTemperature();
   humidity = carrier.Env.readHumidity();
-  pressure = carrier.Pressure.readPressure();
+  pressurekPa = carrier.Pressure.readPressure();
+  pressure = pressurekPa * 0.2953;
   
-  temperature = (tempC1 * 9/5) + 32;   //convert to Fahrenheit
+  
+  temperature = (tempC1 * 9/5) + 32 - 7;   //convert to Fahrenheit
   
   Serial.println("Temperature (C): " + (String) tempC1);
   //Serial.println("Temperature (C): " + (String) tempC2);
   Serial.println("Temperature (F): " + (String) temperature);
   Serial.println("Humidity: " + (String) humidity + "%");
-  Serial.println("Pressure: " + (String) pressure);
+  Serial.println("Pressure (inHg): " + (String) pressure);
 
   delay(500);
 }
