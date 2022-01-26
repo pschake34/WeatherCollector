@@ -1,6 +1,8 @@
 # Ignore IDE files and libraries
 .vscode/
 build/
+venv/
+/__pycache__
 lib*
 
 # Ignore sensitive info
