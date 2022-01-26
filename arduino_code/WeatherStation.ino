@@ -83,6 +83,7 @@ void loop() {
   //tempC2 = myPressure.getTemperature();
   humidity = carrier.Env.readHumidity();
   pressurekPa = carrier.Pressure.readPressure();
+  Serial.println(pressurekPa);
   pressure = pressurekPa * 0.2953;
   
   
