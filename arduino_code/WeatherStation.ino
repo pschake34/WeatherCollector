@@ -12,7 +12,6 @@
   float pressure;
   float temperature;
   float windSpeed;
-  int uptime;
 
   Variables which are marked as READ/WRITE in the Cloud Thing will also have functions
   which are called when their values are changed from the Dashboard.
@@ -36,17 +35,19 @@ void setup() {
   Serial.begin(9600);
   // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
   while(!Serial){}
-  Serial.println("Started Serial...");
+  Serial.println(F("Started Serial..."));
 
   //Set if it has the Enclosure mounted
   CARRIER_CASE = false;
   //Initialize the IoTSK carrier and output any errors in the serial monitor
   carrier.begin();
-  Serial.println("Carrier has begun");
+  Serial.println(F("Carrier has begun"));
 
-  //Wire.begin();        // Join i2c bus
-  //myPressure.begin();  // Initialize pressure sensor 
-
+  carrier.display.fillScreen(ST7735_BLACK);
+  carrier.display.setTextColor(ST7735_WHITE);
+  carrier.display.setTextSize(3.5);
+  carrier.display.setCursor(0, 120);
+  carrier.display.println("Connecting...");
 
   // Defined in thingProperties.h
   initProperties();
@@ -61,19 +62,19 @@ void setup() {
      The default is 0 (only errors).
      Maximum is 4
  */
-  Serial.println("Print information");
+  Serial.println(F("Print information: "));
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
-  Serial.println("Made it past this point 1");
   
   //Wait to get cloud connection to init the carrier
   while (ArduinoCloud.connected() != 1) {
-    Serial.println("Made it past this point 2");
     ArduinoCloud.update();
-    Serial.println("Not Connected");
+    Serial.println(F("Waiting..."));
     delay(500);
   }
   delay(500);
+
+  carrier.display.fillScreen(ST7735_BLACK);
 }
 
 void loop() {
@@ -83,7 +84,6 @@ void loop() {
   //tempC2 = myPressure.getTemperature();
   humidity = carrier.Env.readHumidity();
   pressurekPa = carrier.Pressure.readPressure();
-  Serial.println(pressurekPa);
   pressure = pressurekPa * 0.2953;
   
   
@@ -95,6 +95,12 @@ void loop() {
   Serial.println("Humidity: " + (String) humidity + "%");
   Serial.println("Pressure (inHg): " + (String) pressure);
 
-  delay(500);
+  carrier.display.fillScreen(ST7735_BLACK);
+  carrier.display.setCursor(0, 0);
+  carrier.display.println("Temp: " + (String) temperature + "F");
+  carrier.display.println("\nHmdty: " + (String) humidity + "%");
+  carrier.display.println("\nPrs: " + (String) pressure + "inHg");
+
+  delay(2000);
 }
 
