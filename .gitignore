@@ -2,7 +2,8 @@
 .vscode/
 build/
 venv/
-/__pycache__
+flask_app/__pycache__/*
+flask_app/dashboard/__pycache__/*
 lib*
 
 # Ignore sensitive info
