@@ -34,6 +34,8 @@ We will create a weather station with at least 4 sensors and a web dashboard. We
 
 <img src="/images/initial_sketch_design.jpg" height=300px alt="Initial sketch of design">
 
+The sketch shows detailed sketches of the door, with placement of the battery pack and the simple shape of the box.
+
 ### List of materials
 
 arduino, thermometer, hygrometer, barometer, anemometer, rainfall detection system
@@ -47,3 +49,5 @@ How to program each individual sensor, what kind of communication protocol each 
 **Paul:** Writing code + wiring + electronics
 
 **Ezhar:** CAD + assembly + testing + weatherproofing
+
+We plan to work as quickly as possible, finishing on February 1st and revising until February 14th.
