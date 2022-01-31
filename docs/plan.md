@@ -21,7 +21,7 @@ We will create a weather station with at least 4 sensors and a web dashboard. We
 
 **Safety:** Spinning blades will need to be given attention to, especially making sure that other students not involved with the project won’t be able to hurt themselves or the machinery. Spinning blades and high voltage will be brought into the project last so that fewer mishaps have the opportunity to occur.
 
-**Location:** Where to put the project
+**Location:** Near the garden
 
 ### Needed proof of concepts
 
@@ -36,7 +36,7 @@ We will create a weather station with at least 4 sensors and a web dashboard. We
 
 ### List of materials
 
-photo interrupter, arduino, thermometer, hygrometer, barometer, anemometer, rainfall detection system
+arduino, thermometer, hygrometer, barometer, anemometer, rainfall detection system
 
 ### What we don’t know
 
