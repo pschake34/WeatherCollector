@@ -32,7 +32,7 @@ We will create a weather station with at least 4 sensors and a web dashboard. We
 
 ### Design sketches and images
 
-In Progress...
+<img src="/images/initial_sketch_design.jpg" height=300px alt="Initial sketch of design">
 
 ### List of materials
 
@@ -40,7 +40,7 @@ photo interrupter, arduino, thermometer, hygrometer, barometer, anemometer, rain
 
 ### What we don’t know
 
-How to program each individual sensor, what kind of communication protocol each sensor uses, what kind of hosting we will use for the website (maybe something onsite?), how to communicate between the arduino and the web server.
+How to program each individual sensor, what kind of communication protocol each sensor uses, what kind of hosting we will use for the website (maybe something onsite?), how to communicate between the arduino and the web server. Our research document can be found [here](research.md).
 
 ### Schedule & delegation of work/accountability
 
