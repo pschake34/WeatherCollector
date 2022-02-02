@@ -35,5 +35,7 @@ def create_app(test_config=None):
     from . import dashboard
     app.register_blueprint(dashboard.bp)
     app.add_url_rule('/', endpoint='home')
+    app.add_url_rule('/graphs', endpoint='graphs')
+    app.add_url_rule('/about', endpoint='about')
 
     return app

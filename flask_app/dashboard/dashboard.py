@@ -12,3 +12,11 @@ bp = Blueprint('dashboard', __name__)
 def home():
     db = get_db()
     return render_template('home.html')
+
+@bp.route('/graphs')
+def graphs():
+    return render_template('graphs.html')
+
+@bp.route('/about')
+def about():
+    return render_template('about.html')

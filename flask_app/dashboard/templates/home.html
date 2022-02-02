@@ -2,6 +2,11 @@
 
 {% block title %}Dashboard{% endblock %}
 
-{% block header %}
-    <h1></h1>
+{% block nav_home %}<a class="active" href="/">Home</a>{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="temp-info-card">Temperature</div>
+        <div class="humidity-info-card">Humidity</div>
+    </div>
 {% endblock %}
