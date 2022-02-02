@@ -1,13 +1,16 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - WeatherStation</title>
+<link rel="icon" href="{{ url_for('static', filename='/images/weather_station_icon.png') }}" type="image/icon type">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-  
-</nav>
+
 <section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
+  <div class="topnav">
+    <img src="{{ url_for('static', filename='/images/cloud_white.png') }}" height="20px">
+    {% block nav_home %}<a href="/">Home</a>{% endblock %}
+    {% block nav_graphs %}<a href="/graphs">Graphs</a>{% endblock %}
+    {% block nav_about %}<a href="/about">About</a>{% endblock %}
+  </div>
+
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
