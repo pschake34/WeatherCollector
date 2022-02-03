@@ -1,5 +1,7 @@
 body {
     margin: 0px;
+    margin-right: 15%;
+    margin-left: 15%;
 }
 
 /* Add a black background color to the top navigation */
@@ -36,11 +38,29 @@ body {
   }
 
   /* Styling for home dashboard info */
-  .temp-info-card, .humidity-info-card {
+  .dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .temp-info-card, .humidity-info-card, .pressure-info-card, .wind-speed-info-card {
     float: left;
-    padding: 5rem 5rem;
-    margin: 1rem 1rem;
+    padding: 30% 30%;
+    margin: 3% 5%;
     background-color: #FFFFFF;
     border: 3px solid #333;
     border-radius: 5px;
+  }
+
+  .dashboard-col1 {
+    float: left;
+    border: 0px;
+    width: 50%;
+  }
+
+  .dashboard-col2 {
+    float: right;
+    border: 0px;
+    width: 50%;
   }
