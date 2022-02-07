@@ -113,12 +113,12 @@ body {
 
 .ring {
   position: relative;
-  --pointerleft: 11%;
-  --pointertop: 11%;
-  --pointerdeg: -45deg;
+  --pointerleft: 92%;
+  --pointertop: 40%;
+  --pointerdeg: 90deg;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(red 0, red 50%, transparent 50%, transparent 100%), radial-gradient(green 0, green 50%, transparent 50%, transparent 100%), radial-gradient(white 0, white 60%, transparent 60%), conic-gradient(orange 0, green 130deg, white 130deg, white 230deg, red 230deg, orange 360deg);
+  background-image: radial-gradient(blue 0, blue 50%, transparent 50%, transparent 100%), radial-gradient(red 0, red 50%, transparent 50%, transparent 100%), radial-gradient(white 0, white 60%, transparent 60%), conic-gradient(green 0deg, orange 50deg, red 130deg, white 130deg, white 230deg, blue 180deg, green 350deg);
   background-size: 11% 11%, 11% 11%, 100% 100%, 100% 100%;
   background-repeat: no-repeat;
   background-position: 9.2% 82.3%, 90.8% 82.3%, center center, center center;
