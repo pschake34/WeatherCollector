@@ -26,8 +26,8 @@ db.init_app(app)
 
 @app.route('/')
 def home():
-    database = db.get_db()
-    return render_template('home.html')
+    temperature = 96
+    return render_template('home.html', temperature=temperature)
 
 @app.route('/graphs')
 def graphs():

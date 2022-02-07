@@ -5,6 +5,12 @@
 {% block nav_home %}<a class="active" href="/">Home</a>{% endblock %}
 
 {% block content %}
+    <script type="text/javascript">
+        var temperature = {{ temperature }}
+    </script>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+
     <div class="dashboard">
         <div class="square">
             <div class="square-content">
@@ -12,7 +18,7 @@
                     <div class="table-cell">
                         <div class="ring">
                             <div class="speed">
-                                <div class="temperature">98°F</div>
+                                <div class="temperature">{{temperature}}°F</div>
                             </div>
                         </div>
                     </div>
