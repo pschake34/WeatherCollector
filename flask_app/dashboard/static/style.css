@@ -2,6 +2,13 @@ body {
   margin: 0px;
 }
 
+/* Set variables */
+:root {
+  --pointerleft: 92%;
+  --pointertop: 40%;
+  --pointerdeg: 90deg;
+}
+
 /* for tiny screens (mobile) */
 @media screen and (max-width: 550px) {
   .square {
@@ -113,9 +120,6 @@ body {
 
 .ring {
   position: relative;
-  --pointerleft: 92%;
-  --pointertop: 40%;
-  --pointerdeg: 90deg;
   width: 100%;
   height: 100%;
   background-image: radial-gradient(blue 0, blue 50%, transparent 50%, transparent 100%), radial-gradient(red 0, red 50%, transparent 50%, transparent 100%), radial-gradient(white 0, white 60%, transparent 60%), conic-gradient(green 0deg, orange 50deg, red 130deg, white 130deg, white 230deg, blue 180deg, green 350deg);

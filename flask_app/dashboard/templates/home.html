@@ -2,15 +2,18 @@
 
 {% block title %}Dashboard{% endblock %}
 
+{% block header %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+<script type="text/javascript">
+    let temperature = {{ temperature }};
+</script>
+{% endblock %}
+
 {% block nav_home %}<a class="active" href="/">Home</a>{% endblock %}
 
 {% block content %}
-    <script type="text/javascript">
-        var temperature = {{ temperature }}
-    </script>
-    
-    <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
-
+<body onload="javascript:setTempGuage();">    
     <div class="dashboard">
         <div class="square">
             <div class="square-content">
@@ -56,4 +59,5 @@
             </div>
         </div>    
     </div>
+</body>
 {% endblock %}
