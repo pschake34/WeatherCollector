@@ -4,6 +4,7 @@ body {
 
 /* Set variables */
 :root {
+  /* Variables for temperature guage indicator */
   --pointerleft: 92%;
   --pointertop: 40%;
   --pointerdeg: 90deg;
@@ -118,6 +119,7 @@ body {
   text-align: center;
 }
 
+/* Styling for temperature guage */
 .ring {
   position: relative;
   width: 100%;
