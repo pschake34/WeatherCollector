@@ -3,13 +3,14 @@
 <link rel="icon" href="{{ url_for('static', filename='/images/weather_station_icon.png') }}" type="image/icon type">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-{% block header %}
 <div class="topnav">
   <img src="{{ url_for('static', filename='/images/cloud_white.png') }}" height="20px">
   {% block nav_home %}<a href="/">Home</a>{% endblock %}
   {% block nav_graphs %}<a href="/graphs">Graphs</a>{% endblock %}
   {% block nav_about %}<a href="/about">About</a>{% endblock %}
 </div>
+
+{% block header %}
 {% endblock %}
 
 <section class="content">
