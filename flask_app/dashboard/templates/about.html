@@ -3,3 +3,26 @@
 {% block title %}About{% endblock %}
 
 {% block nav_about %}<a class="active" href="/about">About</a>{% endblock %}
+
+{% block content %}
+<div class="about-info">
+    <p>
+        This website keeps track of the weather data collected by a weather station at Charlottesville High School.
+        The weather station as well as this website were created by Ezhar Zahid and Paul Schakel.
+        You can find documentation and information about the project on their <a href="https://github.com/pschake34/WeatherCollector">Github repository</a>.
+    </p>
+    <div>
+        <br>
+        <div class="about-people">
+            <b>People: </b><br><br>
+            <div class="name">
+                <a href="https://github.com/ezahid82">Ezhar Zahid</a>
+            </div>
+            <br>
+            <div class="name">
+                <a href="https://github.com/pschake34" class="name">Paul Schakel</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

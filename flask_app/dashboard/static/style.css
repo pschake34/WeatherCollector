@@ -44,11 +44,12 @@ body {
 
 /* for regular screens */
 @media screen and (min-width: 900px) {
-  .dashboard, .topnav {
+  .topnav, .content {
     margin-right: 15%;
     margin-left: 15%;
   }
 }
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -174,4 +175,23 @@ body {
 
 .wind-speed {
   font-size: 200%;
+}
+
+/* Styling for about page */
+.about-info {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.about-info p {
+  font-size: 115%;
+  text-align: left;
+}
+
+.about-people {
+  margin-left: 4%;
+}
+
+.name {
+  margin-bottom: 1%;
 }
