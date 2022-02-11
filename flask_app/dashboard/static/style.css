@@ -14,7 +14,7 @@ body {
 @media screen and (max-width: 550px) {
   .square {
     width: 65%; /* fits one square */
-    padding-bottom: 32%;
+    padding-bottom: 45%;
     margin-left: calc(17.5% - 3px);  /* fills in rest of width - adds to 100% */
     margin-right: calc(17.5% - 3px);  
   }
@@ -35,7 +35,7 @@ body {
   .square {
     width: 35%; /* fits two squares */
     padding-top: 1%;
-    padding-bottom: 29%;
+    padding-bottom: 33%;
     margin-left: calc(7.5% - 3px);  /* fills in rest of width - adds to 100% */
     margin-right: calc(7.5% - 3px);  
   }
@@ -127,8 +127,8 @@ body {
   background-image: radial-gradient(blue 0, blue 50%, transparent 50%, transparent 100%), radial-gradient(red 0, red 50%, transparent 50%, transparent 100%), radial-gradient(white 0, white 60%, transparent 60%), conic-gradient(green 0deg, orange 50deg, red 130deg, white 130deg, white 230deg, blue 180deg, green 350deg);
   background-size: 11% 11%, 11% 11%, 100% 100%, 100% 100%;
   background-repeat: no-repeat;
-  background-position: 9.2% 82.3%, 90.8% 82.3%, center center, center center;
-  border-radius: 75%;
+  background-position: 9.3% 82.6%, 90.6% 82.7%, center center, center center;
+  border-radius: 50%;
   border-style: none;
 }
 
