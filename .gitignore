@@ -5,6 +5,11 @@ venv/
 flask_app/__pycache__/*
 flask_app/dashboard/__pycache__/*
 lib*
+flask_app/instance/*
+flask_app/dashboard.egg-info/*
 
 # Ignore sensitive info
 SSID_info.h
+
+# Elastic Beanstalk Files
+flask_app/.elasticbeanstalk*
