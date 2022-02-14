@@ -35,18 +35,25 @@ body {
   .square {
     width: 35%; /* fits two squares */
     padding-top: 1%;
-    padding-bottom: 33%;
+    padding-bottom: calc(35% - 3px - 20px);
     margin-left: calc(7.5% - 3px);  /* fills in rest of width - adds to 100% */
     margin-right: calc(7.5% - 3px);  
   }
 }
-
 
 /* for regular screens */
 @media screen and (min-width: 900px) {
   .topnav, .content {
     margin-right: 15%;
     margin-left: 15%;
+  }
+}
+
+/* for large screens */
+@media screen and (min-width: 1800px) {
+  .content {
+    margin-left: 25%;
+    margin-right: 25%;
   }
 }
 
@@ -176,6 +183,11 @@ body {
 
 .pressure {
   font-size: 200%;
+  padding-bottom: 10%;
+}
+
+.pressure-inHg {
+  font-size: 300%;
 }
 
 .wind-speed {
