@@ -4,16 +4,12 @@
 
 {% block header %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
-
-<script type="text/javascript">
-    let temperature = {{ temperature }};
-</script>
 {% endblock %}
 
 {% block nav_home %}<a class="active" href="/">Home</a>{% endblock %}
 
 {% block content %}
-<body onload="javascript:setTempGuage(temperature);">    
+<body onload="javascript:main();">    
     <div class="dashboard">
         <div class="square">
             <div class="square-content">
@@ -21,7 +17,8 @@
                     <div class="table-cell">
                         <div class="ring">
                             <div class="speed">
-                                <div class="temperature">{{temperature}}°F</div>
+                                <div class="temperature-F" id="temperature-F"></div>
+                                <div class="temperature-C" id="temperature-C"></div>
                             </div>
                         </div>
                     </div>
