@@ -1,0 +1,4 @@
+include dashboard/schema.sql
+graft dashboard/static
+graft dashboard/templates
+global-exclude *.pyc
