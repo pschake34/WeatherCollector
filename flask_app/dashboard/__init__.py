@@ -46,13 +46,13 @@ def create_app(test_config=None):
     def get_sensor_data(type):
         data = {"value": 0}
         if type == "temperature":
-            data["value"] = 75
+            data["value"] = 78.1
         elif type == "humidity":
             data["value"] = 35
         elif type == "pressure":
-            data["value"] = 29.99
-        elif type == "wind_speed":
-            data["value"] = 5
+            data["value"] = 29.9
+        elif type == "wind-speed":
+            data["value"] = 4.6
         else:
             return 'Not a valid type', 400
 
