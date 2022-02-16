@@ -11,17 +11,17 @@ body {
 }
 
 /* for tiny screens (mobile) */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 800px) {
   .square {
     width: 65%; /* fits one square */
-    padding-bottom: 45%;
+    padding-bottom: 65%;
     margin-left: calc(17.5% - 3px);  /* fills in rest of width - adds to 100% */
     margin-right: calc(17.5% - 3px);  
   }
 
   .table-cell {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 0%;
+    padding-right: 0%;
   }
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 /* for small and regular screens */
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 800px) {
   .square {
     width: 35%; /* fits two squares */
     padding-top: 1%;
@@ -42,18 +42,20 @@ body {
 }
 
 /* for regular screens */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
   .topnav, .content {
-    margin-right: 15%;
-    margin-left: 15%;
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
 /* for large screens */
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 1428px) {
   .content {
-    margin-left: 25%;
-    margin-right: 25%;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -61,7 +63,7 @@ body {
 .topnav {
     background-color: #333;
     overflow: hidden;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
   }
 
   .topnav img {
@@ -192,6 +194,11 @@ body {
 
 .wind-speed {
   font-size: 200%;
+  padding-bottom: 10%;
+}
+
+.wind-speed-Mph {
+  font-size: 300%;
 }
 
 /* Styling for about page */
