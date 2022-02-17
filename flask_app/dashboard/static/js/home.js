@@ -67,7 +67,7 @@ async function main() {
     var pressureInHg = await getData("pressure");
     var pressureHPa = pressureInHg * 33.86389;
     var pressureAtm = pressureInHg / 29.921;
-    var windSpeedMph = await getData("wind-speed");
+    var windSpeedMph = await getData("windSpeed");
     var windSpeedMs = windSpeedMph / 2.237;
 
     // display them on the webpage
@@ -81,5 +81,5 @@ async function main() {
     document.getElementById("wind-speed-Mph").innerHTML = windSpeedMph.toFixed(1) + " Mph";
     document.getElementById("wind-speed-Ms").innerHTML = windSpeedMs.toFixed(2) + " M/s";
 
-    setTimeout(main, 10000);  //run every 10 seconds
+    setTimeout(main, 2000);  //run every 10 seconds
 }
