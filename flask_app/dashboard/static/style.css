@@ -10,55 +10,6 @@ body {
   --pointerdeg: 90deg;
 }
 
-/* for tiny screens (mobile) */
-@media screen and (max-width: 800px) {
-  .square {
-    width: 65%; /* fits one square */
-    padding-bottom: 65%;
-    margin-left: calc(17.5% - 3px);  /* fills in rest of width - adds to 100% */
-    margin-right: calc(17.5% - 3px);  
-  }
-
-  .table-cell {
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-}
-
-/* for small screens */
-@media screen and (min-width: 550px) and (max-width: 900px) {
-
-}
-
-/* for small and regular screens */
-@media screen and (min-width: 800px) {
-  .square {
-    width: 35%; /* fits two squares */
-    padding-top: 1%;
-    padding-bottom: calc(35% - 3px - 20px);
-    margin-left: calc(7.5% - 3px);  /* fills in rest of width - adds to 100% */
-    margin-right: calc(7.5% - 3px);  
-  }
-}
-
-/* for regular screens */
-@media screen and (min-width: 1000px) {
-  .topnav, .content {
-    width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-/* for large screens */
-@media screen and (min-width: 1428px) {
-  .content {
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -124,9 +75,21 @@ body {
 }
 
 .table div {
+  margin-top: 1%;
   font-weight: 900;
   color: #333;
   text-align: center;
+}
+
+.label {
+  text-align: left;
+  float:left;
+  margin-left: 3%;
+  margin-top: 0%;
+  padding-bottom: 1%;
+  vertical-align: text-top;
+  font-weight: 560;
+  font-size: 115%;
 }
 
 /* Styling for temperature guage */
@@ -180,7 +143,7 @@ body {
 }
 
 .humidity {
-  font-size: 300%;
+  font-size: 500%;
 }
 
 .pressure {
@@ -198,7 +161,7 @@ body {
 }
 
 .wind-speed-Mph {
-  font-size: 300%;
+  font-size: 350%;
 }
 
 /* Styling for about page */
@@ -218,4 +181,61 @@ body {
 
 .name {
   margin-bottom: 1%;
+}
+
+/* for tiny screens (mobile) */
+@media screen and (max-width: 800px) {
+  .square {
+    width: 55%; /* fits one square */
+    padding-bottom: 40%;
+    margin-left: calc(23.5% - 3px);  /* fills in rest of width - adds to 100% */
+    margin-right: calc(23.5% - 3px);  
+  }
+
+  .table-cell {
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .ring {
+    background-position: 11.2% 84.5%, 87.6% 86.7%, center center, center center;
+  }
+}
+
+/* for small screens */
+@media screen and (min-width: 550px) and (max-width: 900px) {
+
+}
+
+/* for small and regular screens */
+@media screen and (min-width: 800px) {
+  .square {
+    width: 35%; /* fits two squares */
+    padding-top: 1%;
+    padding-bottom: calc(35% - 3px - 20px - 3em);
+    margin-left: calc(7.5% - 3px);  /* fills in rest of width - adds to 100% */
+    margin-right: calc(7.5% - 3px);  
+  }
+
+  .ring {
+    background-position: 11.1% 84.7%, 87.6% 85.9%, center center, center center;
+  }
+}
+
+/* for regular screens */
+@media screen and (min-width: 1000px) {
+  .topnav, .content {
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* for large screens */
+@media screen and (min-width: 1428px) {
+  .content {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
