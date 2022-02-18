@@ -15,6 +15,7 @@ body {
     background-color: #333;
     overflow: hidden;
     margin-bottom: 2%;
+    box-shadow: 5px 9px 20px rgb(0 0 0 / 0.5);
   }
 
   .topnav img {
@@ -54,6 +55,7 @@ body {
   border-radius: 5px;
   background-color:#FFF;
   overflow:hidden;
+  box-shadow: 5px 10px 20px rgb(0 0 0 / 0.5);
 }
 
 .square-content {
@@ -166,6 +168,7 @@ body {
 
 /* Styling for about page */
 .about-info {
+  padding-top: 0.1%;
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -198,7 +201,7 @@ body {
   }
 
   .ring {
-    background-position: 11.2% 84.5%, 87.6% 86.7%, center center, center center;
+    background-position: 12.4% 85.9%, 87.6% 86.0%, center center, center center;
   }
 }
 
@@ -218,7 +221,7 @@ body {
   }
 
   .ring {
-    background-position: 11.1% 84.7%, 87.6% 85.9%, center center, center center;
+    background-position: 11.1% 84.7%, 88.3% 85.3%, center center, center center;
   }
 }
 
