@@ -59,7 +59,6 @@ def create_app(test_config=None):
         data = {"value": 0}
         database = db.get_db()
         valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
-        database_table = ""
 
         if valid_types.index(type) != -1:
             database_table = type
@@ -67,19 +66,10 @@ def create_app(test_config=None):
                 "SELECT * FROM {} ORDER BY time DESC LIMIT 0, 1".format(database_table)
             ).fetchone()
             print("Database values")
-            print(database_values)
+            print(database_values["value"])
+            data["value"] = database_values["value"]
         else:
             return 'Not a valid type', 400
-
-        #if type == "temperature":
-        #    data["value"] = 78.1
-        #elif type == "humidity":
-        #    data["value"] = 35
-        #elif type == "pressure":
-        #    data["value"] = 29.9
-        #elif type == "wind-speed":
-        #    data["value"] = 4.6
-
         return data, 200
 
     # Visible web pages
