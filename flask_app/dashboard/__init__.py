@@ -29,16 +29,12 @@ def create_app(test_config=None):
 
     # Webhooks
     @app.route('/send_sensor_data', methods=['POST'])
-    def send_sensor_data():
+    def send_sensor_data(): # recieves json string and saves value in database if the type is correct
         if request.method == 'POST':
             request_json = request.json
             json_object = json.loads(json.dumps(request_json))
             valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
             database = db.get_db()
-
-            print("Payload: ")
-            print(json.dumps(request_json, indent=4))
-            print(json_object["value"])
 
             if valid_types.index(json_object["name"]) != -1:
                 try:
@@ -55,7 +51,7 @@ def create_app(test_config=None):
             return 'POST Method not supported', 405
 
     @app.route('/get_sensor_data/<type>', methods=['GET'])
-    def get_sensor_data(type):
+    def get_sensor_data(type): # sends the most recent value of the type if the type is valid
         data = {"value": 0}
         database = db.get_db()
         valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
@@ -65,8 +61,6 @@ def create_app(test_config=None):
             database_values = database.execute(
                 "SELECT * FROM {} ORDER BY time DESC LIMIT 0, 1".format(database_table)
             ).fetchone()
-            print("Database values")
-            print(database_values["value"])
             data["value"] = database_values["value"]
         else:
             return 'Not a valid type', 400
@@ -75,8 +69,7 @@ def create_app(test_config=None):
     # Visible web pages
     @app.route('/')
     def home():
-        temperature = 32
-        return render_template('home.html', temperature=temperature)
+        return render_template('home.html')
 
     @app.route('/graphs')
     def graphs():
