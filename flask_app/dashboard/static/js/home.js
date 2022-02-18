@@ -81,5 +81,5 @@ async function main() {
     document.getElementById("wind-speed-Mph").innerHTML = windSpeedMph.toFixed(1) + " Mph";
     document.getElementById("wind-speed-Ms").innerHTML = windSpeedMs.toFixed(2) + " M/s";
 
-    setTimeout(main, 2000);  //run every 10 seconds
+    setTimeout(main, 10000);  //run every 10 seconds
 }
