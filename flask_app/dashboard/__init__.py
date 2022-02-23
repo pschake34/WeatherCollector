@@ -27,13 +27,16 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    # Shared array for webhooks
+    valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
+    valid_timespans = ["year", "half_year", "month", "week", "day", "hour"]
+
     # Webhooks
     @app.route('/send_sensor_data', methods=['POST'])
     def send_sensor_data(): # recieves json string and saves value in database if the type is correct
         if request.method == 'POST':
             request_json = request.json
             json_object = json.loads(json.dumps(request_json))
-            valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
             database = db.get_db()
 
             if valid_types.index(json_object["name"]) != -1:
@@ -54,7 +57,6 @@ def create_app(test_config=None):
     def get_sensor_data(type): # sends the most recent value of the type if the type is valid
         data = {"value": 0}
         database = db.get_db()
-        valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
 
         if valid_types.index(type) != -1:
             database_table = type
@@ -66,14 +68,39 @@ def create_app(test_config=None):
             return 'Not a valid type', 400
         return data, 200
 
+    @app.route('/get_graph_data/<timespan>/<datatype>')
+    def get_graph_data(timespan, datatype):
+        data = {"values": []}
+        database = db.get_db()
+
+        # in progress
+        return None
+
     # Visible web pages
     @app.route('/')
     def home():
         return render_template('home.html')
 
     @app.route('/graphs')
-    def graphs():
-        return render_template('graphs.html')
+    def graph_redirect():
+        return redirect('/graphs/hour/temperature')
+
+    @app.route('/graphs/<timespan>/<datatype>')
+    def graphs(timespan, datatype):
+        timespan_active = ["", "", "", "", "", ""]
+        datatype_active = ["", "", "", ""]
+        timespan_index = valid_timespans.index(timespan)
+        datatype_index = valid_types.index(datatype)
+
+        if timespan_index > -1:
+            if datatype_index > -1:
+                timespan_active[timespan_index] = "active"
+                datatype_active[datatype_index] = "active"
+            else:
+                return 'Not a valid type', 400
+        else:
+            return 'Not a valid timespan', 400
+        return render_template('graphs.html', timespan_active=timespan_active, datatype_active=datatype_active, timespan=timespan, datatype=datatype)
 
     @app.route('/about')
     def about():
