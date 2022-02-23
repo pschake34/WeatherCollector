@@ -2,4 +2,45 @@
 
 {% block title %}Graphs{% endblock %}
 
+{% block header %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+{% endblock %}
+
 {% block nav_graphs %}<a class="active" href="/graphs">Graphs</a>{% endblock %}
+
+{% block content %}
+<body>
+    <div class="chart-container">
+        <div class="chart-options">
+            <div class="time-options">
+                <button>1 Year</button>
+                <button>6 Months</button>
+                <button>1 Month</button>
+                <button>1 Day</button>
+                <button>1 Hour</button>
+                <button>Live</button>
+            </div>
+            <div class="data-types">
+                <div class="chart-types">
+                    <input type="checkbox" id="temperature-checkbox" value="Temperature">
+                    <label for="temperature-checkbox"> Temperature</label>
+                </div>
+                <div class="chart-types">
+                    <input type="checkbox" id="humidity-checkbox" value="Humidity">
+                    <label for="humidity-checkbox"> Humidity</label>
+                </div>
+                <div class="chart-types">
+                    <input type="checkbox" id="pressure-checkbox" value="Pressure">
+                    <label for="pressure-checkbox"> Pressure</label>
+                </div>
+                <div class="chart-types">
+                    <input type="checkbox" id="windSpeed-checkbox" value="Wind Speed">
+                    <label for="windSpeed-checkbox"> Wind Speed</label>
+                </div>
+            </div>
+        </div>
+        <canvas id="chart"></canvas>
+    </div>
+    <script src="{{ url_for('static', filename='js/graphs.js') }}"></script>
+</body>
+{% endblock %}
