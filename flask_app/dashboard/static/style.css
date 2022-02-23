@@ -14,7 +14,7 @@ body {
 .topnav {
     background-color: #333;
     overflow: hidden;
-    margin-bottom: 2%;
+    margin-bottom: 25px;
     box-shadow: 5px 9px 20px rgb(0 0 0 / 0.5);
   }
 
@@ -197,8 +197,13 @@ body {
   margin-right: 5%;
 }
 
+.chart-container button.active {
+  background-color: #086ac5;
+  color: white;
+}
+
 .time-options {
-  margin-top: 2.5%;
+  margin-top: 20px;
   margin-bottom: 1.5%;
   width: 100%;
 }
@@ -217,10 +222,6 @@ body {
   box-shadow: 5px 7px 20px rgb(0 0 0 / 0.5);
 }
 
-.time-options button:not(:last-child) {
-  margin-right: none; /* Prevent double borders */
-}
-
 /* Clear floats (clearfix hack) */
 .time-options:after {
   content: "";
@@ -231,6 +232,7 @@ body {
 /* Add a background color on hover */
 .time-options button:hover {
   background-color: #94a7db;
+  color: black;
 }
 
 .data-types {
@@ -238,16 +240,28 @@ body {
   margin-left: 5%;
   margin-left: 5%;
   margin-top: 1%;
+  margin-bottom: 1%;
 }
 
-.chart-types {
-  width: 25%;
-  float: left;
+.chart-button {
+  border: 0px;
+  background-color: #333;
+  color: white;
+  border-radius: 3px;
+  height: 25px;
+  width: 15%;
+  margin-left: calc(4% - 3px);
+  margin-right: calc(4% - 3px);
+  margin-bottom: 1%;
+  cursor: pointer;
+  box-shadow: 5px 7px 20px rgb(0 0 0 / 0.5);
 }
 
-.chart-types label {
-  margin-bottom: 40%;
+.chart-button:hover {
+  background-color: #94a7db;
+  color: black;
 }
+
 
 /* for tiny screens (mobile) */
 @media screen and (max-width: 800px) {
