@@ -1,3 +1,7 @@
+var activeElements = document.getElementsByClassName("active");
+var timespan = activeElements[1].id;
+var datatype = activeElements[2].id;
+
 const ctx = document.getElementById('chart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: "line",
@@ -16,7 +20,7 @@ var myChart = new Chart(ctx, {
         responsive: true,
         plugins: {
             legend: {
-                position: "top",
+                display: false,
             },
             title: {
                 display: false,
