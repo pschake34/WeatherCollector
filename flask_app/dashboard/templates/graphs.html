@@ -13,30 +13,18 @@
     <div class="chart-container">
         <div class="chart-options">
             <div class="time-options">
-                <button>1 Year</button>
-                <button>6 Months</button>
-                <button>1 Month</button>
-                <button>1 Day</button>
-                <button>1 Hour</button>
-                <button>Live</button>
+                <button class="{{ timespan_active[0] }}" id="year" onclick="location.href='/graphs/year/{{ datatype }}';">1 Year</button>
+                <button class="{{ timespan_active[1] }}" id="half_year" onclick="location.href='/graphs/half_year/{{ datatype }}';">6 Months</button>
+                <button class="{{ timespan_active[2] }}" id="month" onclick="location.href='/graphs/month/{{ datatype }}';">1 Month</button>
+                <button class="{{ timespan_active[3] }}" id="week" onclick="location.href='/graphs/week/{{ datatype }}';">1 Week</button>
+                <button class="{{ timespan_active[4] }}" id="day" onclick="location.href='/graphs/day/{{ datatype }}';">1 Day</button>
+                <button class="{{ timespan_active[5] }}" id="hour" onclick="location.href='/graphs/hour/{{ datatype }}';">1 Hour</button>
             </div>
             <div class="data-types">
-                <div class="chart-types">
-                    <input type="checkbox" id="temperature-checkbox" value="Temperature">
-                    <label for="temperature-checkbox"> Temperature</label>
-                </div>
-                <div class="chart-types">
-                    <input type="checkbox" id="humidity-checkbox" value="Humidity">
-                    <label for="humidity-checkbox"> Humidity</label>
-                </div>
-                <div class="chart-types">
-                    <input type="checkbox" id="pressure-checkbox" value="Pressure">
-                    <label for="pressure-checkbox"> Pressure</label>
-                </div>
-                <div class="chart-types">
-                    <input type="checkbox" id="windSpeed-checkbox" value="Wind Speed">
-                    <label for="windSpeed-checkbox"> Wind Speed</label>
-                </div>
+                <button class="chart-button {{ datatype_active[0] }}" id="temperature" onclick="location.href='/graphs/{{ timespan }}/temperature';">Temperature</button>
+                <button class="chart-button {{ datatype_active[1] }}" id="humidity" onclick="location.href='/graphs/{{ timespan }}/humidity';">Humidity</button>
+                <button class="chart-button {{ datatype_active[2] }}" id="pressure" onclick="location.href='/graphs/{{ timespan }}/pressure';">Pressure</button>
+                <button class="chart-button {{ datatype_active[3] }}" id="windSpeed" onclick="location.href='/graphs/{{ timespan }}/windSpeed';">Wind Speed</button>
             </div>
         </div>
         <canvas id="chart"></canvas>
