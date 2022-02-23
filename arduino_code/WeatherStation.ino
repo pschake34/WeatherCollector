@@ -20,10 +20,8 @@
 
 #include "thingProperties.h"
 #include <Arduino_MKRIoTCarrier.h>
-#include <Adafruit_MPL3115A2.h>
 #include <Wire.h>
 
-//Adafruit_MPL3115A2 myPressure;
 MKRIoTCarrier carrier;
 
 float tempC1 = 0;
@@ -81,16 +79,13 @@ void loop() {
   ArduinoCloud.update();
   
   tempC1 = carrier.Env.readTemperature();
-  //tempC2 = myPressure.getTemperature();
   humidity = carrier.Env.readHumidity();
   pressurekPa = carrier.Pressure.readPressure();
   pressure = pressurekPa * 0.2953;
   
-  
   temperature = (tempC1 * 9/5) + 32 - 7;   //convert to Fahrenheit
   
   Serial.println("Temperature (C): " + (String) tempC1);
-  //Serial.println("Temperature (C): " + (String) tempC2);
   Serial.println("Temperature (F): " + (String) temperature);
   Serial.println("Humidity: " + (String) humidity + "%");
   Serial.println("Pressure (inHg): " + (String) pressure);
