@@ -1,3 +1,4 @@
+import datetime
 import os
 import json
 
@@ -68,13 +69,53 @@ def create_app(test_config=None):
             return 'Not a valid type', 400
         return data, 200
 
-    @app.route('/get_graph_data/<timespan>/<datatype>')
+    @app.route('/get_graph_data/<timespan>/<datatype>', methods=['GET'])
     def get_graph_data(timespan, datatype):
-        data = {"values": []}
+        data = {"values": [], "times": []}
         database = db.get_db()
 
-        # in progress
-        return None
+        if valid_timespans.index(timespan) > -1:
+            if valid_types.index(datatype) > -1:
+                database_table = datatype
+                tz = pytz.timezone("US/Eastern")
+
+                if timespan == "half_year":
+                    timespan = "6 months"
+                elif timespan == "week":
+                    timespan = "7 days"
+                else:
+                    timespan = "1 " + timespan
+
+                database_values = database.execute(
+                    "SELECT * FROM {} WHERE time > datetime('now', '-{}') ORDER BY time DESC".format(database_table, timespan)
+                ).fetchall()
+                if timespan == "1 year" or timespan == "6 months" or timespan == "1 month":
+                    day_cnt = 0
+                    day_total = 0
+                    current_day = datetime.datetime.now().date()
+                    i = 0
+                    while i < len(database_values):
+                        current_time = database_values[i]["time"].date()
+                        if current_time < current_day:
+                            data["times"].append(current_day)
+                            data["values"].append(day_total/day_cnt)
+                            current_day = current_time
+                            day_cnt = 0
+                            day_total = 0
+                        
+                        day_total += database_values[i]["value"]
+                        day_cnt += 1
+                        i += 1
+                    data["times"].append(current_day)
+                    data["values"].append(day_total/day_cnt)
+                else:
+                    data["values"] = [value["value"] for value in database_values]
+                    data["times"] = [value["time"].astimezone() for value in database_values]
+            else:
+                return 'Not a valid type', 400
+        else:
+            return 'Not a valid timespan', 400
+        return data, 200
 
     # Visible web pages
     @app.route('/')
