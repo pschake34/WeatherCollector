@@ -1,9 +1,10 @@
-import datetime
+from datetime import datetime
+import time
 import os
 import json
 
 from flask import (
-    Flask, Blueprint, flash, g, jsonify, redirect, render_template, request, session, url_for
+    Flask, render_template, request, redirect
 )
 
 def create_app(test_config=None):
@@ -31,6 +32,12 @@ def create_app(test_config=None):
     # Shared array for webhooks
     valid_types = ["temperature", "humidity", "pressure", "windSpeed"]
     valid_timespans = ["year", "half_year", "month", "week", "day", "hour"]
+
+    # Utility function for date conversion
+    def datetime_from_utc_to_local(utc_datetime):
+        now_timestamp = time.time()
+        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
+        return utc_datetime + offset
 
     # Webhooks
     @app.route('/send_sensor_data', methods=['POST'])
@@ -77,7 +84,6 @@ def create_app(test_config=None):
         if valid_timespans.index(timespan) > -1:
             if valid_types.index(datatype) > -1:
                 database_table = datatype
-                tz = pytz.timezone("US/Eastern")
 
                 if timespan == "half_year":
                     timespan = "6 months"
@@ -87,17 +93,19 @@ def create_app(test_config=None):
                     timespan = "1 " + timespan
 
                 database_values = database.execute(
-                    "SELECT * FROM {} WHERE time > datetime('now', '-{}') ORDER BY time DESC".format(database_table, timespan)
+                    "SELECT * FROM {} WHERE time > datetime('now', '-{}') ORDER BY time ASC".format(database_table, timespan)
                 ).fetchall()
                 if timespan == "1 year" or timespan == "6 months" or timespan == "1 month":
                     day_cnt = 0
                     day_total = 0
-                    current_day = datetime.datetime.now().date()
+                    current_day = datetime(1970, 1, 1).date()
                     i = 0
                     while i < len(database_values):
-                        current_time = database_values[i]["time"].date()
-                        if current_time < current_day:
-                            data["times"].append(current_day)
+                        current_time = datetime_from_utc_to_local(database_values[i]["time"]).date()
+                        if current_time > current_day and i == 0:
+                            current_day = current_time
+                        elif current_time > current_day and i > 0:
+                            data["times"].append(current_day.strftime("%m/%d/%Y"))
                             data["values"].append(day_total/day_cnt)
                             current_day = current_time
                             day_cnt = 0
@@ -106,11 +114,44 @@ def create_app(test_config=None):
                         day_total += database_values[i]["value"]
                         day_cnt += 1
                         i += 1
-                    data["times"].append(current_day)
+                    data["times"].append(current_day.strftime("%m/%d/%Y"))
+                    data["values"].append(day_total/day_cnt)
+                elif timespan == "7 days":
+                    data_cnt = 0
+                    day_cnt = 0
+                    day_total = 0
+                    half_day = False
+                    half_day_past = False
+                    current_day = datetime(1970, 1, 1, 0, 0, 0)
+                    i = 0
+                    while i < len(database_values):
+                        current_date = datetime_from_utc_to_local(database_values[i]["time"])
+                        current_hour = current_date.hour
+                        if current_hour > 12 and data_cnt > 0 and not half_day_past:
+                            half_day = True
+                        if current_date.date() > current_day.date() and i == 0:
+                            current_day = current_date
+                        elif (current_date.date() > current_day.date() or half_day) and i > 0:
+                            if not half_day_past:
+                                half_day_past = True
+                                half_day = False
+                            if current_date.date() > current_day.date():
+                                half_day_past = False
+                            data["times"].append(current_day.strftime("%m/%d/%Y - %p"))
+                            data["values"].append(day_total/day_cnt)
+                            data_cnt += 1
+                            current_day = current_date
+                            day_cnt = 0
+                            day_total = 0
+                        day_total += database_values[i]["value"]
+                        day_cnt += 1
+                        i += 1
+
+                    data["times"].append(current_day.strftime("%m/%d/%Y - %p"))
                     data["values"].append(day_total/day_cnt)
                 else:
                     data["values"] = [value["value"] for value in database_values]
-                    data["times"] = [value["time"].astimezone() for value in database_values]
+                    data["times"] = [datetime_from_utc_to_local(value["time"]).strftime("%H:%M") for value in database_values]
             else:
                 return 'Not a valid type', 400
         else:
