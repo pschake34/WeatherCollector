@@ -78,6 +78,16 @@ void setup() {
 void loop() {
   ArduinoCloud.update();
   
+  //get wind speed
+  float sensorValue = analogRead(A1);
+  float voltage = (sensorValue / 960) * 5;
+  Serial.println(voltage);
+  float windSpeedMs = mapfloat(voltage, 0.62, 1.7, 0, 32.4);
+  windSpeed = ((windSpeedMs *3600)/1609.344) - 2; //convert from meters per hour to miles
+  if (windSpeed < 0) {
+    windSpeed = 0;
+  }
+
   tempC1 = carrier.Env.readTemperature();
   humidity = carrier.Env.readHumidity();
   pressurekPa = carrier.Pressure.readPressure();
@@ -89,13 +99,19 @@ void loop() {
   Serial.println("Temperature (F): " + (String) temperature);
   Serial.println("Humidity: " + (String) humidity + "%");
   Serial.println("Pressure (inHg): " + (String) pressure);
+  Serial.println("Wind Speed (Mph): " + (String) windSpeed);
 
   carrier.display.fillScreen(ST7735_BLACK);
   carrier.display.setCursor(0, 0);
   carrier.display.println("Temp: " + (String) temperature + "F");
   carrier.display.println("\nHmdty: " + (String) humidity + "%");
   carrier.display.println("\nPrs: " + (String) pressure + "inHg");
+  carrier.display.println("\nWS: " + (String) windSpeed + "Mph");
 
   delay(2000);
 }
 
+// Utility funcion for getting wind speed
+float mapfloat(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
