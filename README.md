@@ -38,17 +38,18 @@ The first project of Engineering III was to create a **robot arm**. However, as 
 
 - Webhooks Integration - [IFTTT](https://ifttt.com/)
 
-- Web Hosting - TBD
+- Web Hosting - [Python Anywhere](https://pythonanywhere.com)
 
 <br>
 <br>
 
 ## Design
 
-Ezhar - fill in with your design ideas
+In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular box with several layers with gaps underneath, but this proved to be too inefficient with the material, and it was scrapped. 
 
 <img src="images/initial_sketch_design.jpg" height=300px>
 
+Initial design for door on top - scrapped soon afterward as we needed to put the wind guage on top. Note that the design is ambuguous as to what shape the enclosure would be.
 
 <br>
 <br>
