@@ -78,6 +78,20 @@ The Wind Speed sensor is supposed to output a voltage between 0.4V and 2V, but w
 
 Creating the final version of the code seemed like a simple task at first - simply slapping all the prototypes into one file and calling it a day. However, some unforseen difficulties with the wifi connection prototype required a whole new solution, and additional features, such as storing the data on an SD card, were needed. Unfortunately, these additional tasks led to some small setbacks in terms of timelyness.
 
+### Arduino IoT Cloud
+
+The solution to our internet communication problem turned out to be using the official method [hosted by Arduino](https://docs.arduino.cc/cloud/iot-cloud). In a very short time, we were able to get our Arduino sending data to the cloud and see a live dashboard with the most recent data. However, it did have some issues that will be addressed later.
+
+[Link To Final Arduino Code](/arduino_code/WeatherStation.ino)
+
+### Sensors
+
+There weren't any major issues with the sensors, as it was just pasting from the prototypes, but there had to be some changes made in terms of which sensors were used. Our original idea was to use the sensors from the IoT Shield as well as an external sensor for temperature and pressure. However, the I2C connection from the external sensor into the Arduino MKR 1010 made the WiFi module unable to connect. Luckily, the IoT Shield had a barometric pressure module that we had previously overlooked, and a crisis was averted.
+
+### Reflection
+
+TODO: Actionable Information
+
 ## Web Dashboard
 
 
