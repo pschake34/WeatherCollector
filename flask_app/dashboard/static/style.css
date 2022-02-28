@@ -13,7 +13,7 @@ body {
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #333;
-  box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 5px 9px 20px rgba(0, 0, 0, 0.5);
   margin-bottom: 25px;
   overflow: hidden;
 }
@@ -50,7 +50,7 @@ body {
   background-color: #fff;
   border: 3px solid #333;
   border-radius: 5px;
-  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 5px 10px 20px rgba(0, 0, 0, 0.5);
   float: left;
   margin-bottom: 2.5%;
   margin-top: 3%;
@@ -88,7 +88,7 @@ body {
   font-size: 115%;
   font-weight: 600;
   margin-left: 3%;
-  margin-top: 0%;
+  margin-top: 0;
   padding-bottom: 1%;
   text-align: left;
   vertical-align: text-top;
@@ -127,7 +127,7 @@ body {
   background-color: white;
   border-radius: 15%;
   border-style: solid;
-  border-width: 3.5px;
+  border-width: 20px;
   content: "";
   height: 15%;
   left: var(--pointerleft);
