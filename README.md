@@ -45,11 +45,13 @@ The first project of Engineering III was to create a **robot arm**. However, as 
 
 ## Design
 
-In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular box with several layers with gaps underneath, but this proved to be too inefficient with the material, and it was scrapped. 
+In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular box with several layers with gaps underneath (similar to image below), but this proved to be too inefficient with the material, and it was scrapped. The design we eventually went with used an overhanging roof with small air slots just beneath it.
 
-<img src="images/initial_sketch_design.jpg" height=300px>
+<img src="images/enclosure.jpeg" height=300px><img src="images/initial_sketch_design.jpg" height=300px>
 
-Initial design for door on top - scrapped soon afterward as we needed to put the wind guage on top. Note that the design is ambuguous as to what shape the enclosure would be.
+Left - Initial idea for weatherproofing
+
+Right - Initial design for door on top - scrapped soon afterward as we needed to put the wind guage on top. Note that the design is ambuguous as to what shape the enclosure would be.
 
 <br>
 <br>
@@ -74,7 +76,7 @@ The Wind Speed sensor is supposed to output a voltage between 0.4V and 2V, but w
 
 ## Final Arduino Code
 
-
+Creating the final version of the code seemed like a simple task at first - simply slapping all the prototypes into one file and calling it a day. However, some unforseen difficulties with the wifi connection prototype required a whole new solution, and additional features, such as storing the data on an SD card, were needed. Unfortunately, these additional tasks led to some small setbacks in terms of timelyness.
 
 ## Web Dashboard
 
