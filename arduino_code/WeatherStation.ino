@@ -23,6 +23,7 @@
 #include <Wire.h>
 
 MKRIoTCarrier carrier;
+File dataFile
 
 float tempC1 = 0;
 float tempC2 = 0;
@@ -32,7 +33,7 @@ void setup() {
   // Initialize serial and wait for port to open:
   Serial.begin(9600);
   // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
-  while(!Serial){}
+  delay(5000);
   Serial.println(F("Started Serial..."));
 
   //Set if it has the Enclosure mounted
@@ -40,6 +41,24 @@ void setup() {
   //Initialize the IoTSK carrier and output any errors in the serial monitor
   carrier.begin();
   Serial.println(F("Carrier has begun"));
+  	
+  // init SD card
+  if (!SD.begin(SD_CS)) {
+    carrier.display.setTextSize(2);
+    carrier.display.setCursor(35, 70);
+    carrier.display.print("SD card failed");
+    carrier.display.setCursor(45, 110);
+    carrier.display.print("to initialise");
+    while (1);
+  }
+
+  //init the logfile
+  dataFile = SD.open("log-0000.csv", FILE_WRITE);
+  delay(1000);
+
+  dataFile.println("temperature,humidity,pressure,windSpeed")
+  dataFile.close();
+  delay(100);
 
   carrier.display.fillScreen(ST7735_BLACK);
   carrier.display.setTextColor(ST7735_WHITE);
@@ -77,7 +96,11 @@ void setup() {
 
 void loop() {
   ArduinoCloud.update();
-  
+
+  // init the logfile
+  dataFile = SD.open("log-0000.csv", FILE_WRITE);
+  delay(1000);
+
   //get wind speed
   float sensorValue = analogRead(A1);
   float voltage = (sensorValue / 960) * 5;
@@ -95,18 +118,29 @@ void loop() {
   
   temperature = (tempC1 * 9/5) + 32 - 7;   //convert to Fahrenheit
   
+  //print to serial monitor
   Serial.println("Temperature (C): " + (String) tempC1);
   Serial.println("Temperature (F): " + (String) temperature);
   Serial.println("Humidity: " + (String) humidity + "%");
   Serial.println("Pressure (inHg): " + (String) pressure);
   Serial.println("Wind Speed (Mph): " + (String) windSpeed);
 
+  //display on screen
   carrier.display.fillScreen(ST7735_BLACK);
   carrier.display.setCursor(0, 0);
   carrier.display.println("Temp: " + (String) temperature + "F");
   carrier.display.println("\nHmdty: " + (String) humidity + "%");
   carrier.display.println("\nPrs: " + (String) pressure + "inHg");
   carrier.display.println("\nWS: " + (String) windSpeed + "Mph");
+
+  //write to logfile
+  dataFile.print("" + (String) temperature + ",");
+  dataFile.print("" + (String) humidity + ",");
+  dataFile.print("" + (String) pressure + ",");
+  dataFile.println("" + (String) windSpeed + ",");
+  dataFile.close();
+
+  Serial.println("Logging successful...");
 
   delay(2000);
 }
