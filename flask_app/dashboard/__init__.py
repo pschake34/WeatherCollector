@@ -36,7 +36,7 @@ def create_app(test_config=None):
     # Utility function for date conversion
     def datetime_from_utc_to_local(utc_datetime):
         now_timestamp = time.time()
-        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp) - timedelta(hours=5)
+        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp) # - timedelta(hours=5)
         return utc_datetime + offset
 
     # Webhooks
@@ -79,6 +79,7 @@ def create_app(test_config=None):
     @app.route('/get_graph_data/<timespan>/<datatype>', methods=['GET'])
     def get_graph_data(timespan, datatype):
         data = {"values": [], "times": []}
+        day_data = []
         database = db.get_db()
 
         if valid_timespans.index(timespan) > -1:
@@ -95,67 +96,79 @@ def create_app(test_config=None):
                 database_values = database.execute(
                     "SELECT * FROM {} WHERE time > datetime('now', '-{}') ORDER BY time ASC".format(database_table, timespan)
                 ).fetchall()
+
+                if timespan != "1 hour" and timespan != "1 day":
+                    current_day = datetime(1970, 1, 1).date()
+                    current_day_data = {"values": [], "times": []}
+                    i = 0
+                    while i > len(database_values):
+                        temp_day = datetime_from_utc_to_local(database_values[i]["time"]).date()
+                        if temp_day > current_day and i == 0:
+                            current_day = temp_day
+                        elif temp_day > current_day and i > 0:
+                            current_day_data["values"].append(database_values[i]["value"])
+                            current_day_data["times"].append(datetime_from_utc_to_local(database_values[i]["time"]))
+                            day_data.append(current_day_data)
+                            current_day_data = {"values": [], "times": []}
+                            current_day = temp_day
+                        else:
+                            current_day_data["values"].append(database_values[i]["value"])
+                            current_day_data["times"].append(datetime_from_utc_to_local(database_values[i]["time"]))
+                        i += 1
+                
                 if timespan == "1 year" or timespan == "6 months" or timespan == "1 month":
                     day_cnt = 0
                     day_total = 0
                     current_day = datetime(1970, 1, 1).date()
-                    i = 0
-                    while i < len(database_values):
-                        current_time = datetime_from_utc_to_local(database_values[i]["time"]).date()
-                        if current_time > current_day and i == 0:
-                            current_day = current_time
-                        elif current_time > current_day and i > 0:
-                            data["times"].append(current_day.strftime("%m/%d/%Y"))
-                            data["values"].append(day_total/day_cnt)
-                            current_day = current_time
-                            day_cnt = 0
-                            day_total = 0
-                        
-                        day_total += database_values[i]["value"]
-                        day_cnt += 1
-                        i += 1
-                    data["times"].append(current_day.strftime("%m/%d/%Y"))
-                    data["values"].append(day_total/day_cnt)
-                elif timespan == "7 days":
-                    data_cnt = 0
-                    day_cnt = 0
-                    day_total = 0
-                    half_day = False
-                    half_day_past = False
-                    current_day = datetime(1970, 1, 1, 0, 0, 0)
-                    i = 0
-                    while i < len(database_values):
-                        current_date = datetime_from_utc_to_local(database_values[i]["time"])
-                        current_hour = current_date.hour
-                        if current_hour > 12 and data_cnt > 0 and not half_day_past:
-                            half_day = True
-                        if current_date.date() > current_day.date() and i == 0:
-                            current_day = current_date
-                        elif (current_date.date() > current_day.date() or half_day) and i > 0:
-                            if not half_day_past:
-                                half_day_past = True
-                                half_day = False
-                            if current_date.date() > current_day.date():
-                                half_day_past = False
-                            data["times"].append(current_day.strftime("%m/%d/%Y - %p"))
-                            data["values"].append(day_total/day_cnt)
-                            data_cnt += 1
-                            current_day = current_date
-                            day_cnt = 0
-                            day_total = 0
-                        day_total += database_values[i]["value"]
-                        day_cnt += 1
-                        i += 1
 
-                    data["times"].append(current_day.strftime("%m/%d/%Y - %p"))
-                    data["values"].append(day_total/day_cnt)
-                else:
+                    for day in day_data:
+                        i = 0
+                        current_day = day["times"][i].date()
+
+                        while i < len(day):
+                            day_total += day["values"][i]
+                            day_cnt += 1
+                            i += 1
+                        data["times"].append(current_day.strftime("%m/%d/%Y"))
+                        data["values"].append(day_total/day_cnt)
+                        day_cnt = 0
+                        day_total = 0
+                elif timespan == "7 days":
+                    half_day_cnt = 0
+                    half_day_total = 0
+                    initial_day_extension = "AM"
+                    current_day = datetime(1970, 1, 1, 0, 0, 0)
+
+                    for day in day_data:
+                        i = 0
+                        current_day = day["times"][i].date()
+
+                        if day["times"][0].hour() < 12:
+                            initial_day_extension = "AM"
+                        else:
+                            initial_day_extension = "PM"
+
+                        while i < len(day):
+                            if day["times"][0].hour() > 12 and initial_day_extension != "PM":
+                                data["times"].append(current_day.strftime("%m/%d/%Y - AM"))
+                                data["values"].append(half_day_total/half_day_cnt)
+                                half_day_cnt = 0
+                                half_day_total = 0
+                            half_day_total += day["values"][i]
+                            half_day_cnt += 1
+
+                            data["times"].append(current_day.strftime("%m/%d/%Y - PM"))
+                            data["values"].append(half_day_total/half_day_cnt)
+                            half_day_cnt = 0
+                            half_day_total = 0
+                else:   # for day and month range
                     data["values"] = [value["value"] for value in database_values]
                     data["times"] = [datetime_from_utc_to_local(value["time"]).strftime("%H:%M") for value in database_values]
             else:
                 return 'Not a valid type', 400
         else:
             return 'Not a valid timespan', 400
+        print(data)
         return data, 200
 
     # Visible web pages
