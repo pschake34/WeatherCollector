@@ -1,4 +1,5 @@
 from datetime import datetime
+from datetime import timedelta
 import time
 import os
 import json
@@ -26,7 +27,7 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
-    from . import db
+    import db
     db.init_app(app)
 
     # Shared array for webhooks
@@ -36,7 +37,7 @@ def create_app(test_config=None):
     # Utility function for date conversion
     def datetime_from_utc_to_local(utc_datetime):
         now_timestamp = time.time()
-        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
+        offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp) - timedelta(hours=5)
         return utc_datetime + offset
 
     # Webhooks
