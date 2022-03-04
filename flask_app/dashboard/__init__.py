@@ -26,7 +26,7 @@ def create_app(test_config=None):
     def hello():
         return 'Hello, World!'
 
-    from . import db
+    import db
     db.init_app(app)
 
     # Shared array for webhooks
