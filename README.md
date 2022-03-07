@@ -97,3 +97,25 @@ TODO: Actionable Information
 
 
 ## CAD
+
+
+
+### Discription
+
+The **weather box** is designed to keep everything *weather proof* and safe from outside interference. It is5.13 inches
+
+
+
+
+
+
+
+
+
+### Summary
+
+The CAD design went through **many** changes as it progressed like the **airvent holes**, design of the **Top** being the major ones. But many small changes occured as we moved forward like the percise measurment of the **Arduino MKR** screw holes, the measurments of the **windgauge**, and the wire holes for all of them.
+
+
+
+
