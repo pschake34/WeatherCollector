@@ -102,7 +102,9 @@ TODO: Actionable Information
 
 ### Discription
 
-The **weather box** is designed to keep everything *weather proof* and safe from outside interference. It is5.13 inches
+The **weather box** is designed to keep everything *weather proof* and safe from outside interference. the base is **4.88 inches x4.88 inches**. It has a battery pack cutout **(63.70mm x 94.40 mm**) and the airvent holes being (**10mm x 37mm**) and **10mm** from the top edges of all the walls. The door is (**93.32mm x 126.32mm**) with a door knob and hinge holes. 
+
+with fillets being **1 mm**. the wire cutout is (**2mm x 3.50mm**) at the bottom edge of the *battery cutout*. 
 
 
 
