@@ -98,26 +98,20 @@ TODO: Actionable Information
 
 ## CAD
 
+### Description
+
+The enclosure for the weather station had several requirements, the most important of which were **weather proofing** and **airflow**. Since the weather station was to be outside at all times, the electronics had to be protected from the elements. However, the sensors couldn't be comepletely isolated from the weather because they needed to be able to measure it.
+
+### Weather Proofing
+    
+The measures we took to weather proof the enclosure had to go hand in hand with measures to retain airflow. With this in mind, we made sure that holes at the top of the enclosure to let in air would be covered by an extended roof on top of the box. Additionally, we used more brackets to hold the enclosure together than was strictly necessary so that we could be more confident that water wouldn't slip between the walls of the box. By considering weather proofing at every stage of the design, we were able to come up with a final design that could withstand almost any weather that it might encounter.
 
 
-### Discription
+### Images and Links
 
-The **weather box** is designed to keep everything *weather proof* and safe from outside interference. 
+[Link to Onshape design](https://cvilleschools.onshape.com/documents/513e7211a424748dcd89b2b6/w/52ee4db75103f561a75d491c/e/53e7a17418f6ffe4f5469b6c)
 
-
-
-
-the base is **4.88 inches x4.88 inches**. It has a battery pack cutout **(63.70mm x 94.40 mm**) and the airvent holes being (**10mm x 37mm**) and **10mm** from the top edges of all the walls. The door is (**93.32mm x 126.32mm**) with a door knob and hinge holes.
-
-
-
-
-
-
-
-
-
-### Summary
+### Reflection
 
 The CAD design went through **many** changes as it progressed like the **airvent holes**, design of the **Top** being the major ones. But many small changes occured as we moved forward like the percise measurment of the **Arduino MKR** screw holes, the measurments of the **windgauge**, and the wire holes for all of them.
 
