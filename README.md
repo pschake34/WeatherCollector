@@ -97,3 +97,30 @@ TODO: Actionable Information
 
 
 ## CAD
+
+
+
+### Discription
+
+The **weather box** is designed to keep everything *weather proof* and safe from outside interference. 
+
+
+
+
+the base is **4.88 inches x4.88 inches**. It has a battery pack cutout **(63.70mm x 94.40 mm**) and the airvent holes being (**10mm x 37mm**) and **10mm** from the top edges of all the walls. The door is (**93.32mm x 126.32mm**) with a door knob and hinge holes.
+
+
+
+
+
+
+
+
+
+### Summary
+
+The CAD design went through **many** changes as it progressed like the **airvent holes**, design of the **Top** being the major ones. But many small changes occured as we moved forward like the percise measurment of the **Arduino MKR** screw holes, the measurments of the **windgauge**, and the wire holes for all of them.
+
+
+
+
