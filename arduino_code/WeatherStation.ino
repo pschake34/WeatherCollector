@@ -23,7 +23,7 @@
 #include <Wire.h>
 
 MKRIoTCarrier carrier;
-File dataFile
+File dataFile;
 
 float tempC1 = 0;
 float tempC2 = 0;
@@ -56,7 +56,7 @@ void setup() {
   dataFile = SD.open("log-0000.csv", FILE_WRITE);
   delay(1000);
 
-  dataFile.println("temperature,humidity,pressure,windSpeed")
+  dataFile.println("temperature,humidity,pressure,windSpeed");
   dataFile.close();
   delay(100);
 
