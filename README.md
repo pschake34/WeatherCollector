@@ -82,30 +82,43 @@ Creating the final version of the code seemed like a simple task at first - simp
 
 The solution to our internet communication problem turned out to be using the official method [hosted by Arduino](https://docs.arduino.cc/cloud/iot-cloud). In a very short time, we were able to get our Arduino sending data to the cloud and see a live dashboard with the most recent data. However, it did have some issues that will be addressed later.
 
-[Link To Final Arduino Code](/arduino_code/WeatherStation.ino)
-
 ### Sensors
 
 There weren't any major issues with the sensors, as it was just pasting from the prototypes, but there had to be some changes made in terms of which sensors were used. Our original idea was to use the sensors from the IoT Shield as well as an external sensor for temperature and pressure. However, the I2C connection from the external sensor into the Arduino MKR 1010 made the WiFi module unable to connect. Luckily, the IoT Shield had a barometric pressure module that we had previously overlooked, and a crisis was averted.
 
+### Images and Links
+
+[Link To Final Arduino Code](/arduino_code/WeatherStation.ino)
+
+This is where we would usually put an image of the wiring, but all of the sensors except the anemometer were built into the Arduino IoT Shield, and the wiring from the anemometer was just an analog input to the Arduino and a battery connection. With this in mind it seemed trivial enough to omit the wiring but if more information on the wiring for the anemometer is needed, see [this article](https://how2electronics.com/measure-wind-speed-using-anemometer-arduino/).
+
 ### Reflection
 
-TODO: Actionable Information
+The Arduino side of the programming was fairly simple, but probably took longer than it should have. We should have done more planning before launching into the prototyping process, which would have saved some time wasted in creating prototypes unused in the final project. The only real problems that we encountered writing the code were technical difficulties to do with Arduino Create, their website for programming Arduinos, which was not allowing us to upload sketches to the Arduino. My solution was simply to use [VS Code](https://code.visualstudio.com/) instead.
 
 ## Web Dashboard
+
+The Web Dashboard was the most complicated part of the project, since it needed a lot of backend work as well as some design. The most sophisticated part of the dashboard was the use of webhooks to communicate between the Arduino and the cloud server, as well as to display data on the website.
+
+### Backend
+
+The back end of the website was written in Python using the Flask framework...
+
+### Frontend
+
+
+
+### Reflection
 
 
 
 ## CAD
-
-### Description
 
 The enclosure for the weather station had several requirements, the most important of which were **weather proofing** and **airflow**. Since the weather station was to be outside at all times, the electronics had to be protected from the elements. However, the sensors couldn't be comepletely isolated from the weather because they needed to be able to measure it.
 
 ### Weather Proofing
     
 The measures we took to weather proof the enclosure had to go hand in hand with measures to retain airflow. With this in mind, we made sure that holes at the top of the enclosure to let in air would be covered by an extended roof on top of the box. Additionally, we used more brackets to hold the enclosure together than was strictly necessary so that we could be more confident that water wouldn't slip between the walls of the box. By considering weather proofing at every stage of the design, we were able to come up with a final design that could withstand almost any weather that it might encounter.
-
 
 ### Images and Links
 
