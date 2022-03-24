@@ -96,6 +96,9 @@ This is where we would usually put an image of the wiring, but all of the sensor
 
 The Arduino side of the programming was fairly simple, but probably took longer than it should have. We should have done more planning before launching into the prototyping process, which would have saved some time wasted in creating prototypes unused in the final project. The only real problems that we encountered writing the code were technical difficulties to do with Arduino Create, their website for programming Arduinos, which was not allowing us to upload sketches to the Arduino. My solution was simply to use [VS Code](https://code.visualstudio.com/) instead.
 
+<br>
+<br>
+
 ## Web Dashboard
 
 The Web Dashboard was the most complicated part of the project, since it needed a lot of backend work as well as some design. The most sophisticated part of the dashboard was the use of webhooks to communicate between the Arduino and the cloud server, as well as to display data on the website.
@@ -112,6 +115,9 @@ The back end of the website was written in Python using the Flask framework...
 
 
 
+<br>
+<br>
+
 ## CAD
 
 The enclosure for the weather station had several requirements, the most important of which were **weather proofing** and **airflow**. Since the weather station was to be outside at all times, the electronics had to be protected from the elements. However, the sensors couldn't be comepletely isolated from the weather because they needed to be able to measure it.
@@ -126,4 +132,9 @@ The measures we took to weather proof the enclosure had to go hand in hand with 
 
 ### Reflection
 
-The CAD design went through **many** changes as it progressed, like the **airvent holes**, and design of the **Top** being the major ones. But many small changes occured as we moved forward like the percise measurment of the **Arduino MKR** screw holes, the measurments of the **windgauge**, and the wire holes for all of them, and the **battery** and **door** cut-outs. Before making any changes, having variables that can be modified through out the design saves a lot of time and effort when deciding to make changes later.
+The CAD design went through **many** changes as it progressed, with the **airvent holes** and design of the **Top** being the major ones. Many other small changes had to be made as we further developed the design, such as the positioning of the **Arduino MKR** screw holes, the measurements of the **windgauge**, and the cut-outs for the **battery** and the **door**. Many of these small changes took longer than they should have because we didn't initially make use of variables in the design, which would have sped up the process of making modifications tremendously.
+
+<br>
+<br>
+
+## Final Results
