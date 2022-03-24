@@ -101,19 +101,27 @@ The Arduino side of the programming was fairly simple, but probably took longer 
 
 ## Web Dashboard
 
-The Web Dashboard was the most complicated part of the project, since it needed a lot of backend work as well as some design. The most sophisticated part of the dashboard was the use of webhooks to communicate between the Arduino and the cloud server, as well as to display data on the website.
+The Web Dashboard was the most complicated part of the project, since it needed a lot of backend work as well as some design. The most sophisticated part of the dashboard was the use of webhooks to communicate between the Arduino and the cloud server, as well as to display data in the browser. The website is available at [chsweather.pythonanywhere.com](https://chsweather.pythonanywhere.com)
 
 ### Backend
 
-The back end of the website was written in Python using the Flask framework...
+The back end of the website was written in Python using the [Flask framework](https://flask.palletsprojects.com/en/2.0.x/), making use of webhooks to do most of the heavy lifting in terms of data transfer into and out of the main database. These webhooks recieved data from the Arduino (which was first piped through [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud) and [IFTTT](https://ifttt.com/)), storing it in the database from which it could be accessed by via two other webhooks that found the most recent data value and the data for graphs, respectively. For more information on how to make use of webhooks in projects see [this article.](https://www.markheath.net/post/basic-introduction-webhooks)
 
 ### Frontend
 
-
+The user facing side of the website was fairly difficult, as neither of us have much skill in design, but we managed. The design was created with pure HTML/CSS, with JavaScript to add functionality. [Charts.js](https://www.chartjs.org) was used to generate the graphs, but the rest of the design was written from scratch. The temperature guage was particularly difficult to pull off, requiring quite a bit of math to get the indicator in the correct position.
 
 ### Reflection
 
+The Web Dashboard was one of the most time consuming parts of the project, and for good reason - it wasn't particularly straightforward. However, there was considerable time lost on the aforementioned temperature guage, which probably took about twice as long as it should have. Remembering the scope of a project is definitely important, especially when under time constraints, and we somewhat strayed from that path in the design of the website. That isn't to say that we wasted a ton of time, but it could have been better. At least we found some useful and time saving tools along the way:
 
+* [Validating CSS](https://codebeautify.org/cssvalidate)
+
+* [Formatting CSS](https://codebeautify.org/css-beautify-minify)
+
+* [Opening local development environment to web](https://ngrok.com)
+
+All in all, creating the weather station website definitely improved our skills as developers as well as our understanding of how the web works, with webhooks and API calls flying all over the place to create the beautiful mess that the modern internet is today.
 
 <br>
 <br>
