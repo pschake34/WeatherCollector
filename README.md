@@ -148,6 +148,14 @@ The measures we took to weather proof the enclosure had to go hand in hand with 
 
 [Link to Onshape design](https://cvilleschools.onshape.com/documents/513e7211a424748dcd89b2b6/w/52ee4db75103f561a75d491c/e/53e7a17418f6ffe4f5469b6c)
 
+<img src="images\Weather Station CAD pic (battery side).PNG" height=300px alt="Image of CAD inside of enclosure">
+
+The inside of the enclosure
+
+<img src="images\Weather Station CAD pic (whole).PNG" height=300px alt="Image of CAD outside of enclosure">
+
+The outside of the enclosure
+
 ### Reflection
 
 The CAD design went through **many** changes as it progressed, with the **airvent holes** and design of the **Top** being the major ones. Many other small changes had to be made as we further developed the design, such as the positioning of the **Arduino MKR** screw holes, the measurements of the **windgauge**, and the cut-outs for the **battery** and the **door**. Many of these small changes took longer than they should have because we didn't initially make use of variables in the design, which would have sped up the process of making modifications tremendously.
@@ -156,3 +164,13 @@ The CAD design went through **many** changes as it progressed, with the **airven
 <br>
 
 ## Final Results
+
+The last step of our project was to fabricate and assemble the final product, a step which unfortunately took us far too long to get to. The assembly was a rather tedious process, as the enclosure had been designed with a very large numbers of brackets, which needed to all be screwed in. Also, the small space inside the box made some things very difficult, such as plugging things into the Arduino and getting things situated inside. However, we were very happy with our results after putting in some work and elbow grease.
+
+### Images
+
+TODO...
+
+### Reflection
+
+We ran into some issues with connecting the battery pack, Arduino, and anemometer which basically came down to not putting things together in order. As with most things, we could have avoided this mistake by planning more beforehand. Speaking of planning, we *definitely* should have planned more for this project, as we didn't really have a concrete plan going into it, and we did not stay on time with our deadlines. The first part of our project is still in need of some bugfixes and more testing before going into production.
