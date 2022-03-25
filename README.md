@@ -111,6 +111,16 @@ The back end of the website was written in Python using the [Flask framework](ht
 
 The user facing side of the website was fairly difficult, as neither of us have much skill in design, but we managed. The design was created with pure HTML/CSS, with JavaScript to add functionality. [Charts.js](https://www.chartjs.org) was used to generate the graphs, but the rest of the design was written from scratch. The temperature guage was particularly difficult to pull off, requiring quite a bit of math to get the indicator in the correct position.
 
+### Images
+
+<img src="images/web_dashboard.png" height=300px alt="Image of Web Dashboard">
+
+The home page of the website
+
+<img src="images/graph_page.png" height=300px alt="Image of Web Dashboard">
+
+The graph page of the website
+
 ### Reflection
 
 The Web Dashboard was one of the most time consuming parts of the project, and for good reason - it wasn't particularly straightforward. However, there was considerable time lost on the aforementioned temperature guage, which probably took about twice as long as it should have. Remembering the scope of a project is definitely important, especially when under time constraints, and we somewhat strayed from that path in the design of the website. That isn't to say that we wasted a ton of time, but it could have been better. At least we found some useful and time saving tools along the way:
