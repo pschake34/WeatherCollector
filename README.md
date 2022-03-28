@@ -115,11 +115,11 @@ The user facing side of the website was fairly difficult, as neither of us have 
 
 <img src="images/web_dashboard.png" height=300px alt="Image of Web Dashboard">
 
-The home page of the website
+The home page of the website - displaying the most up to date sensor readings
 
 <img src="images/graph_page.png" height=300px alt="Image of Web Dashboard">
 
-The graph page of the website
+The graph page of the website - showing all the available data averaged by day
 
 ### Reflection
 
@@ -169,7 +169,13 @@ The last step of our project was to fabricate and assemble the final product, a 
 
 ### Images
 
-TODO...
+<img src="images/finished_enclosure_front.jpg" height=300px alt="Image of final enclosure - front">
+
+The front and door of the enclosure. The anemometer (wind speed guage) is on the top.
+
+<img src="images/finished_enclosure_lower.jpg" height=300px alt="Image of final enclosure - lower">
+
+A lower view of the encloser. The battery pack is shown on the left side and the Arduino MKR 1010 with its IoT shield is visible on the inner right side. 
 
 ### Reflection
 
