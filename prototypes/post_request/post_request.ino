@@ -7,7 +7,7 @@
 #include "SSID_info.h"
 
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
-const char serverName[] = "c5c1-67-132-49-18.ngrok.io";  // server name
+const char serverName[] = "chsweather.pythonanywhere.com";  // server name
 int port = 80;
 
 WiFiClient wifi;
@@ -50,7 +50,7 @@ void setup() {
 void loop() {
     Serial.println("making POST request");
     String contentType = "application/json";
-    String postData = "{\"sensor\":\"BME280\",\"value1\":\"24.25\",\"value2\":\"49.54\",\"value3\":\"1005.14\"}";
+    String postData = "{\"name\": \"temperature\",\"value\": 73.69910430908203}";
 
     client.post("/send_sensor_data", contentType, postData);
 
