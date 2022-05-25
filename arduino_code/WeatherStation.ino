@@ -18,16 +18,30 @@
   These functions are generated with the Thing and added at the end of this sketch.
 */
 
-#include "thingProperties.h"
+#include <WiFiNINA.h>
+#include <ArduinoHttpClient.h>
 #include <Arduino_MKRIoTCarrier.h>
 #include <Wire.h>
 
 MKRIoTCarrier carrier;
 File dataFile;
 
+int status = WL_IDLE_STATUS;     // the Wifi radio's status
+const char serverName[] = "chsweather.pythonanywhere.com";  // server name
+int port = 80;
+const char SSID[] = "CHS Guest Wireless";   // your network SSID (name)
+const char PASSWORD[] = "";   // your network password (use for WPA, or use as key for WEP)
+
+WiFiClient wifi;
+HttpClient client = HttpClient(wifi, serverName, port);
+
 float tempC1 = 0;
 float tempC2 = 0;
 float pressurekPa = 0;
+float windSpeed = 0;
+float humidity = 0;
+float pressure = 0;
+float temperature = 0;
 
 void setup() {
   // Initialize serial and wait for port to open:
@@ -56,7 +70,7 @@ void setup() {
   dataFile = SD.open("log-0000.csv", FILE_WRITE);
   delay(1000);
 
-  dataFile.println("temperature,humidity,pressure,windSpeed");
+  dataFile.println("temperature,humidity,pressure,windSpeed,millis");
   dataFile.close();
   delay(100);
 
@@ -66,37 +80,42 @@ void setup() {
   carrier.display.setCursor(0, 120);
   carrier.display.println("Connecting...");
 
-  // Defined in thingProperties.h
-  initProperties();
+  while (status != WL_CONNECTED) {
+      Serial.print("Attempting to connect to network: ");
+      Serial.println(SSID);
+      // Connect to WPA/WPA2 network:
+      status = WiFi.begin(SSID, PASSWORD);
 
-  // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-  
-  /*
-     The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
-     the higher number the more granular information you’ll get.
-     The default is 0 (only errors).
-     Maximum is 4
- */
-  Serial.println(F("Print information: "));
-  setDebugMessageLevel(2);
-  ArduinoCloud.printDebugInfo();
-  
-  //Wait to get cloud connection to init the carrier
-  while (ArduinoCloud.connected() != 1) {
-    ArduinoCloud.update();
-    Serial.println(F("Waiting..."));
-    delay(500);
+      // wait 10 seconds for connection:
+      delay(10000);
   }
-  delay(500);
 
+      // you're connected now
+  Serial.println("You're connected to the network");
+
+  Serial.println("\nInformation: ");
+
+  // print your board's IP address:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("IP Address: ");
+  Serial.println(ip);
+
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
+
+  // print the received signal strength:
+  long rssi = WiFi.RSSI();
+  Serial.print("Signal strength (RSSI):");
+  Serial.println(rssi);
+
+  carrier.display.fillScreen(ST7735_BLACK);
+  carrier.display.setCursor(0, 120);
+  carrier.display.println("Connected!");
+  delay(2000);
   carrier.display.fillScreen(ST7735_BLACK);
 }
 
 void loop() {
-  ArduinoCloud.update();
-
   // init the logfile
   dataFile = SD.open("log-0000.csv", FILE_WRITE);
   delay(1000);
@@ -137,12 +156,40 @@ void loop() {
   dataFile.print("" + (String) temperature + ",");
   dataFile.print("" + (String) humidity + ",");
   dataFile.print("" + (String) pressure + ",");
-  dataFile.println("" + (String) windSpeed + ",");
+  dataFile.print("" + (String) windSpeed + ",");
+  dataFile.println("" + (String) millis() + ",");
   dataFile.close();
 
   Serial.println("Logging successful...");
 
-  delay(2000);
+  //send data to server
+  postRequest("temperature", temperature);
+  postRequest("humidity", humidity);
+  postRequest("pressure", pressure);
+  postRequest("windSpeed", windSpeed);
+
+  //delay(60000);
+}
+
+// Function to send post request
+void postRequest(String sensorName, float value) {
+  Serial.println("Making POST Request...");
+
+  String contentType = "application/json";
+  String postData = "{\"name\": \"" + sensorName + "\",\"value\": " + (String) value + "}";
+  Serial.println(postData);
+
+  client.post("/send_sensor_data", contentType, postData);
+
+  // read the status code and body of the response
+  int statusCode = client.responseStatusCode();
+  Serial.print("Status code: ");
+  Serial.println(statusCode);
+  String response = client.responseBody();
+  Serial.print("Response: ");
+  Serial.println(response);
+
+  delay(5000);
 }
 
 // Utility funcion for getting wind speed
