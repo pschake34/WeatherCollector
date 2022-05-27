@@ -43,6 +43,15 @@ The first project of Engineering III was to create a **robot arm**. However, as 
 <br>
 <br>
 
+
+
+
+---
+
+
+
+
+
 ## Design
 
 In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular box with several layers with gaps underneath (similar to image below), but this proved to be too inefficient with the material, and it was scrapped. The design we eventually went with used an overhanging roof with small air slots just beneath it.
@@ -73,6 +82,12 @@ The Wind Speed sensor is supposed to output a voltage between 0.4V and 2V, but w
 
 <br>
 <br>
+
+
+---
+
+
+
 
 ## Final Arduino Code
 
