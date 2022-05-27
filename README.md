@@ -180,3 +180,16 @@ A lower view of the encloser. The battery pack is shown on the left side and the
 ### Reflection
 
 We ran into some issues with connecting the battery pack, Arduino, and anemometer which basically came down to not putting things together in order. As with most things, we could have avoided this mistake by planning more beforehand. Speaking of planning, we *definitely* should have planned more for this project, as we didn't really have a concrete plan going into it, and we did not stay on time with our deadlines. The first part of our project is still in need of some bugfixes and more testing before going into production.
+
+
+
+## Iteration
+
+
+### Purpose
+
+The first design had issues with **size**, the ability to **mount** and **dismount** the enclosure for *battery change* and *rechargability*, and the enclosure's door. This took too much *time*, and *distrupted* the **data** being collected. The new design adds changes to make the enclusure **smaller** and **easy** to access while **keeping** the **data** flow un-enterupted.
+
+### Design
+
+The new version of the enclosure has a much *smaller Height* with the walls being **(50mm)** from the base to the top, but still has the **(10mm)** ledge at the bottom. The **door** has been moved to the **bottom** of the enclosure to make it more *weather proof* and **easy** to *access*. The **door knob** has been replaced with a **door handle** and is now *locked* with **magnets**. The *8base mount** has been *changed* to **side clip holders** and the *amounts* of **brackets** have been *reduced* by **half**. The new design separates the batter pack and the wind gauge from the rest of the box to keep the enclosure at hands reach, and move the wind gauge to be at a higher altitude to keep data accurate.
