@@ -43,6 +43,15 @@ The first project of Engineering III was to create a **robot arm**. However, as 
 <br>
 <br>
 
+
+
+
+---
+
+
+
+
+
 ## Design
 
 In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular box with several layers with gaps underneath (similar to image below), but this proved to be too inefficient with the material, and it was scrapped. The design we eventually went with used an overhanging roof with small air slots just beneath it.
@@ -73,6 +82,12 @@ The Wind Speed sensor is supposed to output a voltage between 0.4V and 2V, but w
 
 <br>
 <br>
+
+
+---
+
+
+
 
 ## Final Arduino Code
 
@@ -180,3 +195,16 @@ A lower view of the encloser. The battery pack is shown on the left side and the
 ### Reflection
 
 We ran into some issues with connecting the battery pack, Arduino, and anemometer which basically came down to not putting things together in order. As with most things, we could have avoided this mistake by planning more beforehand. Speaking of planning, we *definitely* should have planned more for this project, as we didn't really have a concrete plan going into it, and we did not stay on time with our deadlines. The first part of our project is still in need of some bugfixes and more testing before going into production.
+
+
+
+## Iteration
+
+
+### Purpose
+
+The first design had issues with **size**, the ability to **mount** and **dismount** the enclosure for *battery change* and *rechargability*, and the enclosure's door. This took too much *time*, and *distrupted* the **data** being collected. The new design adds changes to make the enclusure **smaller** and **easy** to access while **keeping** the **data** flow un-enterupted.
+
+### Design
+
+The new version of the enclosure has a much *smaller Height* with the walls being **(50mm)** from the base to the top, but still has the **(10mm)** ledge at the bottom. The **door** has been moved to the **bottom** of the enclosure to make it more *weather proof* and **easy** to *access*. The **door knob** has been replaced with a **door handle** and is now *locked* with **magnets**. The *8base mount** has been *changed* to **side clip holders** and the *amounts* of **brackets** have been *reduced* by **half**. The new design separates the batter pack and the wind gauge from the rest of the box to keep the enclosure at hands reach, and move the wind gauge to be at a higher altitude to keep data accurate.
