@@ -54,7 +54,7 @@ The first project of Engineering III was to create a **robot arm**. However, as 
 
 ## Design
 
-In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular box with several layers with gaps underneath (similar to image below), but this proved to be too inefficient with the material, and it was scrapped. The design we eventually went with used an overhanging roof with small air slots just beneath it.
+In the design for our enclosure, we had to take several factors into account: space for sensors, air access, and most importantly **Weather Proofing**. The latter two were somewhat in conflict, so we had to figure out how to let the sensors have access to outside air, while still being waterproof. Our initial idea was to have a circular enlcosure with several layers with gaps underneath (similar to image below), but this proved to be too inefficient with the material, and it was scrapped. The design we eventually went with used an overhanging roof with small air slots just beneath it.
 
 <img src="images/enclosure.jpeg" height=300px><img src="images/initial_sketch_design.jpg" height=300px>
 
@@ -157,7 +157,7 @@ The enclosure for the weather station had several requirements, the most importa
 
 ### Weather Proofing
     
-The measures we took to weather proof the enclosure had to go hand in hand with measures to retain airflow. With this in mind, we made sure that holes at the top of the enclosure to let in air would be covered by an extended roof on top of the box. Additionally, we used more brackets to hold the enclosure together than was strictly necessary so that we could be more confident that water wouldn't slip between the walls of the box. By considering weather proofing at every stage of the design, we were able to come up with a final design that could withstand almost any weather that it might encounter.
+The measures we took to weather proof the enclosure had to go hand in hand with measures to retain airflow. With this in mind, we made sure that holes at the top of the enclosure to let in air would be covered by an extended roof on top of the enclosure. Additionally, we used more brackets to hold the enclosure together than was strictly necessary so that we could be more confident that water wouldn't slip between the walls of the enclosure. By considering weather proofing at every stage of the design, we were able to come up with a final design that could withstand almost any weather that it might encounter.
 
 ### Images and Links
 
@@ -180,7 +180,7 @@ The CAD design went through **many** changes as it progressed, with the **airven
 
 ## Final Results
 
-The last step of our project was to fabricate and assemble the final product, a step which unfortunately took us far too long to get to. The assembly was a rather tedious process, as the enclosure had been designed with a very large numbers of brackets, which needed to all be screwed in. Also, the small space inside the box made some things very difficult, such as plugging things into the Arduino and getting things situated inside. However, we were very happy with our results after putting in some work and elbow grease.
+The last step of our project was to fabricate and assemble the final product, a step which unfortunately took us far too long to get to. The assembly was a rather tedious process, as the enclosure had been designed with a very large numbers of brackets, which needed to all be screwed in. Also, the small space inside the enclosure made some things very difficult, such as plugging things into the Arduino and getting things situated inside. However, we were very happy with our results after putting in some work and elbow grease.
 
 ### Images
 
@@ -197,14 +197,26 @@ A lower view of the encloser. The battery pack is shown on the left side and the
 We ran into some issues with connecting the battery pack, Arduino, and anemometer which basically came down to not putting things together in order. As with most things, we could have avoided this mistake by planning more beforehand. Speaking of planning, we *definitely* should have planned more for this project, as we didn't really have a concrete plan going into it, and we did not stay on time with our deadlines. The first part of our project is still in need of some bugfixes and more testing before going into production.
 
 
+<br>
+<br>
+
 
 ## Iteration
+
 
 
 ### Purpose
 
 The first design had issues with **size**, the ability to **mount** and **dismount** the enclosure for *battery change* and *rechargability*, and the enclosure's door. This took too much *time*, and *distrupted* the **data** being collected. The new design adds changes to make the enclusure **smaller** and **easy** to access while **keeping** the **data** flow un-enterupted.
 
+
 ### Design
 
-The new version of the enclosure has a much *smaller Height* with the walls being **(50mm)** from the base to the top, but still has the **(10mm)** ledge at the bottom. The **door** has been moved to the **bottom** of the enclosure to make it more *weather proof* and **easy** to *access*. The **door knob** has been replaced with a **door handle** and is now *locked* with **magnets**. The *8base mount** has been *changed* to **side clip holders** and the *amounts* of **brackets** have been *reduced* by **half**. The new design separates the batter pack and the wind gauge from the rest of the box to keep the enclosure at hands reach, and move the wind gauge to be at a higher altitude to keep data accurate.
+The new version of the enclosure has a much *smaller Height* with the walls being **(50mm)** from the base to the top, but still has the **(10mm)** ledge at the bottom. The **door** has been moved to the **bottom** of the enclosure to make it more *weather proof* and **easy** to *access*. The **door knob** has been replaced with a **door handle** and is now *locked* with **magnets**. The *base mount** has been *changed* to **side clip holders** and the *amounts* of **brackets** have been *reduced* by **half**. The new design separates the batter pack and the wind gauge from the rest of the enclosure to keep the enclosure at hand's reach, and move the wind gauge to be at a higher altitude to keep **data** accurate.
+
+
+### CAD 
+
+The
+
+
