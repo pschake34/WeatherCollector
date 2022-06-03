@@ -19,6 +19,7 @@
 */
 
 #include <WiFiNINA.h>
+#include <NTPClient.h>
 #include <ArduinoHttpClient.h>
 #include <Arduino_MKRIoTCarrier.h>
 #include <Wire.h>
@@ -34,6 +35,10 @@ const char PASSWORD[] = "";   // your network password (use for WPA, or use as k
 
 WiFiClient wifi;
 HttpClient client = HttpClient(wifi, serverName, port);
+
+WiFiUDP ntpUDP;
+
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", -3600*4, 60000);
 
 float tempC1 = 0;
 float tempC2 = 0;
@@ -70,7 +75,7 @@ void setup() {
   dataFile = SD.open("log-0000.csv", FILE_WRITE);
   delay(1000);
 
-  dataFile.println("temperature,humidity,pressure,windSpeed,millis");
+  dataFile.println("temperature,humidity,pressure,windSpeed,time");
   dataFile.close();
   delay(100);
 
@@ -111,6 +116,9 @@ void setup() {
   carrier.display.fillScreen(ST7735_BLACK);
   carrier.display.setCursor(0, 120);
   carrier.display.println("Connected!");
+
+  timeClient.begin();
+
   delay(2000);
   carrier.display.fillScreen(ST7735_BLACK);
 }
@@ -157,7 +165,9 @@ void loop() {
   dataFile.print("" + (String) humidity + ",");
   dataFile.print("" + (String) pressure + ",");
   dataFile.print("" + (String) windSpeed + ",");
-  dataFile.println("" + (String) millis() + ",");
+
+  timeClient.update();
+  dataFile.println("" + timeClient.getFormattedDate() + ",");
   dataFile.close();
 
   Serial.println("Logging successful...");
