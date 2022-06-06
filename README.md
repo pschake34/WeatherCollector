@@ -217,6 +217,6 @@ The new version of the enclosure has a much *smaller Height* with the walls bein
 
 ### CAD 
 
-The
+The CAD design was modified mostly by removing some aspects of the previous design like the **Door** and **Air vent holes** being on the sides, to being moved to the bottom for better space managment and weatherproofing. The enclousure took a longer time than expected because of the size change causing a chain reaction of sketches breaking. This resulted in the enclosure being changed completely with relations being added and changed to fix the issues. 
 
 
