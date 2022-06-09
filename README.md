@@ -8,6 +8,7 @@ This is the repository for Paul and Ezhar's Engineering III Weather Data Collect
 * [Final Arduino Code](#final-arduino-code)
 * [Web Dashboard](#web-dashboard)
 * [CAD](#cad)
+* [CAD Re-design](#iteration)
 * [Assembly](#assembly)
 * [Final Results](#final-results)
 
@@ -207,21 +208,26 @@ We ran into some issues with connecting the battery pack, Arduino, and anemomete
 
 ### Purpose
 
-The first design had issues with **size**, the ability to **mount** and **dismount** the enclosure for *battery change* and *rechargability*, and the enclosure's door. This took too much *time*, and *distrupted* the **data** being collected. The new design adds changes to make the enclusure **smaller** and **easy** to access while **keeping** the **data** flow un-enterupted.
+The first design had issues with **size**, the ability to **mount** and **dismount** the enclosure for *battery change* and *rechargability*, and the enclosure's door. This took too much *time*, and *distrupted* the **data** being collected. The new design adds changes to make the enclusure **smaller** and **easy** to access while **keeping** the **data** flow un-enterupted while keeping the wind gauge at high altitude.
 
 
 ### Design
 
-The new version of the enclosure has a much *smaller Height* with the walls being **(50mm)** from the base to the top, but still has the **(10mm)** ledge at the bottom. The **door** has been moved to the **bottom** of the enclosure to make it more *weather proof* and **easy** to *access*. The **door knob** has been replaced with a **door handle** and is now *locked* with **magnets**. The *base mount** has been *changed* to **side clip holders** and the *amounts* of **brackets** have been *reduced* by **half**. The new design separates the batter pack and the wind gauge from the rest of the enclosure to keep the enclosure at hand's reach, and move the wind gauge to be at a higher altitude to keep **data** accurate.
+The new version of the enclosure has a much *smaller Height* with the walls being **(50mm)** from the base to the top, but still has the **(10mm)** ledge at the bottom. The **door** has been moved to the **bottom** of the enclosure to make it more *weather proof* and **easy** to *access*. The **door knob** has been replaced with a **door handle** and is now *locked* with **magnets**. The *base mount** has been *changed* to **side clip holders** and the *amounts* of **brackets** have been *reduced* by **half**. The new design **separates** the batter pack and the wind gauge from the rest of the enclosure to keep the enclosure at hand's reach, and move the wind gauge to be at a higher altitude to keep **data** accurate.
 
 
 ### CAD 
 
-The CAD design was modified mostly by removing some aspects of the previous design like the **Door** and **Air vent holes** being on the sides, to being moved to the bottom for better space managment and weatherproofing. The enclousure took a longer time than expected because of the size change causing a chain reaction of sketches breaking. This resulted in the enclosure being changed completely with relations being added and changed to fix the issues.
+The CAD design was modified mostly by removing some aspects of the previous design like the **Door** and **Air vent holes** being on the sides, to being moved to the bottom for better space managment and weatherproofing. The enclousure took a longer time than expected because of the size change causing a chain reaction of sketches breaking. This resulted in the enclosure being changed completely with relations being added and changed to fix the issues. The **wind gauge** was made simpler with the previous design's **enclosure holder** being added to a plate that would be used to **mount** the *wind gauge.*
 
 
 ### Assembly 
 
-The box was put together exactly as shown on the CAD version. But, after the assembly was completed, it was found that the magnets werent't strong enough to hold the weight of the **Carrier shield** and 
+The box was put together exactly as shown on the CAD version with gaskets added to better coat the screw holes from water getting in. But, after the assembly was completed, it was found that the magnets werent't strong enough to hold the weight of the **Carrier shield** and would constantly fall. It was **modified** later by *carving* the door to make room to place **extra** magnets. This helped hold the weight of the device and be easily accessible afterwards.
+
+
+### Images
+
+
 
 
