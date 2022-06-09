@@ -124,6 +124,16 @@ void setup() {
 }
 
 void loop() {
+  while (status != WL_CONNECTED) {
+      Serial.print("Disconnected... Attempting to reconnect to network: ");
+      Serial.println(SSID);
+      // Connect to WPA/WPA2 network:
+      status = WiFi.begin(SSID, PASSWORD);
+
+      // wait 10 seconds for connection:
+      delay(10000);
+  }
+
   // init the logfile
   dataFile = SD.open("log-0000.csv", FILE_WRITE);
   delay(1000);
@@ -178,7 +188,7 @@ void loop() {
   postRequest("pressure", pressure);
   postRequest("windSpeed", windSpeed);
 
-  //delay(60000);
+  delay(30000);
 }
 
 // Function to send post request
