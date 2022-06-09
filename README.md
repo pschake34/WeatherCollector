@@ -228,6 +228,13 @@ The box was put together exactly as shown on the CAD version with gaskets added 
 
 ### Images
 
+<img src="images/Weather Data Collector iteration (whole box).PNG" height=350px alt="weather box enclosure whole box assembled">
 
+this is the whole box assembeled in Onshape with the top extending farther.
 
+<img src="images/Weather Data Collector iteration door handle.PNG" height=350px alt="weather box enclosure bottom view with the door handle">
+
+This is the door handle with the brackets and many of the design changes of the box.
+
+<img src="images/Weather Data Collector iteration (Top).jpg" height=350px alt="weather box enclosure bottom view with the door handle">
 
